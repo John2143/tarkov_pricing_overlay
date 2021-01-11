@@ -1184,6 +1184,7 @@ dependencies = [
  "libc",
  "num-format",
  "once_cell",
+ "rayon",
  "reqwest",
  "scrap",
  "serde",

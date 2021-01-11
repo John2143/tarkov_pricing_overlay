@@ -1,20 +1,26 @@
 use inputbot;
 
 mod screenshot;
+mod closestmatch;
 
 use screenshot::{ScreenshotData, CursorPos};
 use once_cell::{self, sync::Lazy};
+use closestmatch::ClosestMatch;
 
 static OCR_API_KEY: Lazy<String> = Lazy::new(|| {
-    std::env::var("OCR_API_KEY").unwrap()
+    include_str!("../ocr_api_key.txt").trim().to_owned()
 });
 
 static MARKET_API_KEY: Lazy<String> = Lazy::new(|| {
-    std::env::var("MARKET_API_KEY").unwrap()
+    include_str!("../market_api_key.txt").trim().to_owned()
+});
+
+static WORDS: Lazy<ClosestMatch> = Lazy::new(|| {
+    let titles = include_str!("../wiki_titles.txt");
+    ClosestMatch::new(titles.lines().map(|x| x.to_owned()).collect(), vec![1,2,3,4,5])
 });
 
 fn main() {
-    println!("Hello, world!");
     inputbot::KeybdKey::TKey.bind(|| {
         match analyze_pressed() {
             Ok(_) => println!("was ok"),
@@ -23,6 +29,12 @@ fn main() {
             },
         };
     });
+
+    println!("{}", WORDS.get_closest("water ootle wit filter Aquamari").unwrap());
+    println!("{}", *MARKET_API_KEY);
+    println!("{}", *OCR_API_KEY);
+
+    println!("Bot ready");
 
     inputbot::handle_input_events();
 }
@@ -33,6 +45,7 @@ enum AnalyzeError {
     BadMousePosition,
     BadRequest,
     BadJson,
+    NoCloseWord,
 }
 
 fn find_top_left_corner(screen: &ScreenshotData, mouse_location: &CursorPos) -> Option<(u32, u32)> {
@@ -97,11 +110,7 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
 
     let screen = screenshot::take_screenshot().map_err(|_| AnalyzeError::ScreenshotFailed)?;
 
-    dbg!(mouse_location);
-
     let tl_corner = find_top_left_corner(&screen, &mouse_location).ok_or(AnalyzeError::BadMousePosition)?;
-
-    dbg!(tl_corner);
 
     let h = 30;
     let w = 500;
@@ -122,7 +131,7 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
     println!("Screenshot taken, parsing image as text...");
 
     let d = client
-        .post("https://api.ocr.space/parse/image")
+        .post("https://apipro1.ocr.space/parse/image")
         .header("apikey", &*OCR_API_KEY)
         .multipart(form)
         .send()
@@ -131,15 +140,20 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
             AnalyzeError::BadRequest
         })?;
 
-    let j: apis::ocr::Root = d.json()
+    let t = d.text().unwrap();
+
+    let j: apis::ocr::Root = serde_json::from_str(&t)
         .map_err(|e| {
             println!("is bad {}", e);
+            println!("{}", &t);
             AnalyzeError::BadJson
         })?;
 
-    let text = j.parsed_results[0].parsed_text.trim().to_owned();
+    let text_ocr = &j.parsed_results[0].parsed_text.trim();
 
-    println!("Detected text was {}. Reading market data... ", &text);
+    let text = WORDS.get_closest(&text_ocr).ok_or(AnalyzeError::NoCloseWord)?;
+
+    println!("Detected text was '{}'. Closest was '{}'. Reading market data... ", &text_ocr, &text);
 
     let d = client
         .get("https://tarkov-market.com/api/v1/item")
