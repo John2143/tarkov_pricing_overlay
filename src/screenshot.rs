@@ -32,6 +32,8 @@ pub fn take_screenshot() -> Result<ScreenshotData, ()> {
     Err(())
 }
 
+use image;
+
 impl ScreenshotData {
     //return RGBA8888 pixel as u32
     pub fn get_pixel(&self, x: usize, y: usize) -> u32 {
@@ -50,6 +52,23 @@ impl ScreenshotData {
                 self.pixels[pos],
             ])
         }
+    }
+
+    pub fn to_image(self) -> Option<image::RgbImage> {
+        let mut img = image::RgbImage::new(self.width as u32, self.height as u32);
+
+        for x in 0..self.width {
+            for y in 0 ..self.height {
+                let p = self.get_pixel(x, y);
+                img.put_pixel(x as u32, y as u32, image::Rgb([
+                    (p >> 8 & 0xff) as u8, 
+                    (p >> 16 & 0xff) as u8,
+                    (p >> 24 & 0xff) as u8,
+                ]));
+            }
+        }
+
+        Some(img)
     }
 }
 

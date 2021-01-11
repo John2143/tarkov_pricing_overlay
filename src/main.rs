@@ -3,18 +3,36 @@ use inputbot;
 mod screenshot;
 
 use screenshot::{ScreenshotData, CursorPos};
+use once_cell::{self, sync::Lazy};
+
+static OCR_API_KEY: Lazy<String> = Lazy::new(|| {
+    std::env::var("OCR_API_KEY").unwrap()
+});
+
+static MARKET_API_KEY: Lazy<String> = Lazy::new(|| {
+    std::env::var("MARKET_API_KEY").unwrap()
+});
 
 fn main() {
     println!("Hello, world!");
     inputbot::KeybdKey::TKey.bind(|| {
-        analyze_pressed();
+        match analyze_pressed() {
+            Ok(_) => println!("was ok"),
+            Err(e) => {
+                println!("{:?}", e);
+            },
+        };
     });
 
     inputbot::handle_input_events();
 }
 
+#[derive(Debug)]
 enum AnalyzeError {
     ScreenshotFailed,
+    BadMousePosition,
+    BadRequest,
+    BadJson,
 }
 
 fn find_top_left_corner(screen: &ScreenshotData, mouse_location: &CursorPos) -> Option<(u32, u32)> {
@@ -59,6 +77,21 @@ fn find_top_left_corner(screen: &ScreenshotData, mouse_location: &CursorPos) -> 
     }
 }
 
+pub mod apis;
+
+fn get_flea_tax(value_to_traders: i64, list_price: i64) -> i64 {
+    let v_o = list_price as f64;
+    let v_r = value_to_traders as f64;
+    let t_i = 0.05;
+    let t_r = 0.05;
+    let p_r = (v_r / v_o).log10();
+    let p_o = (v_o / v_r).log10();
+
+    let flea_price = v_o * t_i * 4f64.powf(p_o) + v_r * t_r * 4f64.powf(p_r);
+
+    flea_price as i64
+}
+
 fn analyze_pressed() -> Result<(), AnalyzeError> {
     let mouse_location = CursorPos::get();
 
@@ -66,13 +99,90 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
 
     dbg!(mouse_location);
 
-    let tl_corner = find_top_left_corner(&screen, &mouse_location);
-
-    let h = 30;
-    let w = 700;
-    let offset = 20;
+    let tl_corner = find_top_left_corner(&screen, &mouse_location).ok_or(AnalyzeError::BadMousePosition)?;
 
     dbg!(tl_corner);
+
+    let h = 30;
+    let w = 500;
+    let offset = 20;
+
+    let i = screen.to_image().unwrap();
+    let subimage = image::SubImage::new(&i, tl_corner.0 + offset, tl_corner.1, w, h);
+    let mut png_buffer = vec![];
+    let enc = image::codecs::png::PngEncoder::new(&mut png_buffer);
+    enc.encode(&subimage.to_image().as_raw(), w, h, image::ColorType::Rgb8).unwrap();
+
+    let client = reqwest::blocking::Client::new();
+    let form = reqwest::blocking::multipart::Form::new()
+        .text("base64Image", format!("data:image/png;base64,{}", base64::encode(png_buffer)))
+        .text("language", "eng")
+        .text("OCREngine", "1");
+
+    println!("Screenshot taken, parsing image as text...");
+
+    let d = client
+        .post("https://api.ocr.space/parse/image")
+        .header("apikey", &*OCR_API_KEY)
+        .multipart(form)
+        .send()
+        .map_err(|e| {
+            println!("is bad {}", e);
+            AnalyzeError::BadRequest
+        })?;
+
+    let j: apis::ocr::Root = d.json()
+        .map_err(|e| {
+            println!("is bad {}", e);
+            AnalyzeError::BadJson
+        })?;
+
+    let text = j.parsed_results[0].parsed_text.trim().to_owned();
+
+    println!("Detected text was {}. Reading market data... ", &text);
+
+    let d = client
+        .get("https://tarkov-market.com/api/v1/item")
+        .query(&[("q", &text)])
+        .header("x-api-key", &*MARKET_API_KEY)
+        .send()
+        .map_err(|e| {
+            println!("is bad {}", e);
+            AnalyzeError::BadRequest
+        })?;
+
+    //dbg!(d.text().unwrap());
+
+    let js: Vec<apis::market::Root> = d.json()
+        .map_err(|e| {
+            println!("is bad {}", e);
+            AnalyzeError::BadJson
+        })?;
+
+    for j in js {
+        struct S(i64);
+        impl std::fmt::Display for S {
+            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
+                use num_format::{Locale, ToFormattedString};
+                write!(f, "{}", self.0.to_formatted_string(&Locale::en))?;
+                Ok(())
+            }
+        }
+
+        println!("Name: {} --- {}", j.short_name, j.name);
+        println!("Trader Price: {} -> {}{} ({}{}/slot)", j.trader_name, S(j.trader_price), j.trader_price_cur, S(j.trader_price / j.slots), j.trader_price_cur);
+        let rb_price = if j.trader_price_cur == "₽" {
+            j.trader_price
+        }else{
+            j.trader_price * 126
+        };
+
+        for (price, why) in &[(j.price, "Lowest"), (j.avg24h_price, "24h"), (j.avg7d_price, "7d ")] {
+            let price = *price;
+            let ft = get_flea_tax(rb_price, price);
+            println!("{} Flea\t{}₽ - {}₽ = {}₽ ({}₽/slot)", why, S(price), S(ft), S(price - ft), S((price - ft) / j.slots));
+        }
+    }
 
     Ok(())
 }
