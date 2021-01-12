@@ -1,3 +1,5 @@
+use std::sync::atomic::{AtomicUsize, Ordering};
+
 use inputbot;
 
 mod screenshot;
@@ -17,7 +19,7 @@ static MARKET_API_KEY: Lazy<String> = Lazy::new(|| {
 
 static WORDS: Lazy<ClosestMatch> = Lazy::new(|| {
     let titles = include_str!("../wiki_titles.txt");
-    ClosestMatch::new(titles.lines().map(|x| x.to_owned()).collect(), vec![1,2,3,4,5])
+    ClosestMatch::new(titles.lines().map(|x| x.to_owned()).collect(), vec![3,4,5,6])
 });
 
 fn main() {
@@ -30,13 +32,17 @@ fn main() {
         };
     });
 
-    println!("{}", WORDS.get_closest("water ootle wit filter Aquamari").unwrap());
-    println!("{}", *MARKET_API_KEY);
-    println!("{}", *OCR_API_KEY);
+    //println!("{}", WORDS.get_closest("water ootle wit filter Aquamari").unwrap());
+    //println!("{}", *MARKET_API_KEY);
+    //println!("{}", *OCR_API_KEY);
 
     println!("Bot ready");
 
-    inputbot::handle_input_events();
+    //create_window();
+
+    let t = std::thread::spawn(|| inputbot::handle_input_events());
+
+    t.join().unwrap();
 }
 
 #[derive(Debug)]
@@ -52,7 +58,7 @@ fn find_top_left_corner(screen: &ScreenshotData, mouse_location: &CursorPos) -> 
     let mut x_edge = None;
     let mut y_edge = None;
 
-    let border_color_inv = 0x54_51_49_ff_u32;
+    //let border_color_inv = 0x54_51_49_ff_u32;
     let border_color_overlay_box = 0x60_5d_58_ff_u32;
 
 

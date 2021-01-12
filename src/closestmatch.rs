@@ -1,4 +1,4 @@
-
+///This library is slightly modified from the closestmatch rs crate.
 use rayon;
 
 use std::collections::HashMap;
