@@ -1,9 +1,9 @@
 ///This library is slightly modified from the closestmatch rs crate.
 use rayon;
 
+use rayon::prelude::*;
 use std::collections::HashMap;
 use std::collections::HashSet;
-use rayon::prelude::*;
 
 /// The ```ClosestMatch``` struct stores informations about the dictionary of known words
 /// and the different sizes for the bags of words.
@@ -39,14 +39,15 @@ fn split_word(word: &str, sizes: &Vec<usize>) -> SplitWord {
     }
 
     SplitWord {
-        word: word.to_owned(), substrings,
+        word: word.to_owned(),
+        substrings,
     }
 }
 
 fn evaluate(
     word_subs: &HashSet<String>,
     possible: String,
-    possible_subs: &HashSet<String>
+    possible_subs: &HashSet<String>,
 ) -> ScoreValue {
     let mut count = 0;
     let len_sum = word_subs.len() + possible_subs.len();
@@ -58,9 +59,9 @@ fn evaluate(
 
     let score = (count as f32) / (len_sum as f32);
     ScoreValue {
-       word: possible,
-       score: score,
-   }
+        word: possible,
+        score: score,
+    }
 }
 
 fn max_score(a: ScoreValue, b: ScoreValue) -> ScoreValue {
@@ -86,20 +87,21 @@ impl ClosestMatch {
         }
 
         Self {
-           substrings,
-           substring_sizes: sizes,
-       }
+            substrings,
+            substring_sizes: sizes,
+        }
     }
 
     /// The function ```get_closest``` takes a word with type ```String``` and
     /// returns the closest word in the dictionary of known words.
     pub fn get_closest(&self, word: &str) -> Option<String> {
         let word_subs = split_word(&word, &self.substring_sizes).substrings;
-        let best = self.substrings
+        let best = self
+            .substrings
             .par_iter()
             .map(|(possible, possible_subs)| {
-                     evaluate(&word_subs, possible.to_lowercase(), possible_subs)
-                 })
+                evaluate(&word_subs, possible.to_lowercase(), possible_subs)
+            })
             .reduce_with(|a, b| max_score(a, b));
         match best {
             Some(expr) => Some(expr.word),
@@ -114,11 +116,15 @@ mod tests {
 
     #[test]
     fn it_works() {
-        let cm = ClosestMatch::new(["hello".to_string(),
-                                    "bullo".to_string(),
-                                    "hello world".to_string()]
-                                           .to_vec(),
-                                   [1, 2, 3].to_vec());
+        let cm = ClosestMatch::new(
+            [
+                "hello".to_string(),
+                "bullo".to_string(),
+                "hello world".to_string(),
+            ]
+            .to_vec(),
+            [1, 2, 3].to_vec(),
+        );
         let closest = cm.get_closest("hlo".to_string());
         println!("{:?}", closest);
     }

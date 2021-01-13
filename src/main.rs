@@ -1,25 +1,25 @@
-use std::sync::atomic::{AtomicUsize, Ordering};
+use closestmatch::ClosestMatch;
+use once_cell::{self, sync::Lazy};
+use screenshot::{CursorPos, ScreenshotData};
 
 use inputbot;
 
-mod screenshot;
+mod apis;
 mod closestmatch;
+mod screenshot;
 
-use screenshot::{ScreenshotData, CursorPos};
-use once_cell::{self, sync::Lazy};
-use closestmatch::ClosestMatch;
+static OCR_API_KEY: Lazy<String> =
+    Lazy::new(|| include_str!("../ocr_api_key.txt").trim().to_owned());
 
-static OCR_API_KEY: Lazy<String> = Lazy::new(|| {
-    include_str!("../ocr_api_key.txt").trim().to_owned()
-});
-
-static MARKET_API_KEY: Lazy<String> = Lazy::new(|| {
-    include_str!("../market_api_key.txt").trim().to_owned()
-});
+static MARKET_API_KEY: Lazy<String> =
+    Lazy::new(|| include_str!("../market_api_key.txt").trim().to_owned());
 
 static WORDS: Lazy<ClosestMatch> = Lazy::new(|| {
     let titles = include_str!("../wiki_titles.txt");
-    ClosestMatch::new(titles.lines().map(|x| x.to_owned()).collect(), vec![3,4,5,6])
+    ClosestMatch::new(
+        titles.lines().map(|x| x.to_owned()).collect(),
+        vec![3, 4, 5, 6],
+    )
 });
 
 fn main() {
@@ -28,7 +28,7 @@ fn main() {
             Ok(_) => println!("was ok"),
             Err(e) => {
                 println!("{:?}", e);
-            },
+            }
         };
     });
 
@@ -48,10 +48,11 @@ fn main() {
 #[derive(Debug)]
 enum AnalyzeError {
     ScreenshotFailed,
-    BadMousePosition,
-    BadRequest,
-    BadJson,
-    NoCloseWord,
+    CannotFindInspectBox,
+    BadRequest(&'static str),
+    BadOCRJson,
+    BadMarketJson,
+    NoCloseWord(String),
 }
 
 fn find_top_left_corner(screen: &ScreenshotData, mouse_location: &CursorPos) -> Option<(u32, u32)> {
@@ -74,7 +75,7 @@ fn find_top_left_corner(screen: &ScreenshotData, mouse_location: &CursorPos) -> 
             x_edge = Some(new_x);
             break;
         }
-    };
+    }
 
     for y_offset in 0.. {
         if y_offset > mouse_location.y {
@@ -88,7 +89,7 @@ fn find_top_left_corner(screen: &ScreenshotData, mouse_location: &CursorPos) -> 
             y_edge = Some(new_y);
             break;
         }
-    };
+    }
 
     match (x_edge, y_edge) {
         (Some(x), Some(y)) => Some((x, y)),
@@ -96,11 +97,10 @@ fn find_top_left_corner(screen: &ScreenshotData, mouse_location: &CursorPos) -> 
     }
 }
 
-pub mod apis;
-
+///Get the cost to list the item on the flea market. formula from wike
 fn get_flea_tax(value_to_traders: i64, list_price: i64) -> i64 {
     let v_o = list_price as f64;
-    let v_r = value_to_traders as f64;
+    let v_r = (value_to_traders as f64) * 2.0; //sell price * 2 = buy price from trade
     let t_i = 0.05;
     let t_r = 0.05;
     let p_r = (v_r / v_o).log10();
@@ -116,7 +116,8 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
 
     let screen = screenshot::take_screenshot().map_err(|_| AnalyzeError::ScreenshotFailed)?;
 
-    let tl_corner = find_top_left_corner(&screen, &mouse_location).ok_or(AnalyzeError::BadMousePosition)?;
+    let tl_corner =
+        find_top_left_corner(&screen, &mouse_location).ok_or(AnalyzeError::CannotFindInspectBox)?;
 
     let h = 30;
     let w = 500;
@@ -126,58 +127,52 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
     let subimage = image::SubImage::new(&i, tl_corner.0 + offset, tl_corner.1, w, h);
     let mut png_buffer = vec![];
     let enc = image::codecs::png::PngEncoder::new(&mut png_buffer);
-    enc.encode(&subimage.to_image().as_raw(), w, h, image::ColorType::Rgb8).unwrap();
+    enc.encode(&subimage.to_image().as_raw(), w, h, image::ColorType::Rgb8)
+        .unwrap();
+
+    println!("Screenshot taken, parsing image as text...");
 
     let client = reqwest::blocking::Client::new();
     let form = reqwest::blocking::multipart::Form::new()
-        .text("base64Image", format!("data:image/png;base64,{}", base64::encode(png_buffer)))
+        .text(
+            "base64Image",
+            format!("data:image/png;base64,{}", base64::encode(png_buffer)),
+        )
         .text("language", "eng")
         .text("OCREngine", "1");
-
-    println!("Screenshot taken, parsing image as text...");
 
     let d = client
         .post("https://apipro1.ocr.space/parse/image")
         .header("apikey", &*OCR_API_KEY)
         .multipart(form)
         .send()
-        .map_err(|e| {
-            println!("is bad {}", e);
-            AnalyzeError::BadRequest
-        })?;
+        .map_err(|_| AnalyzeError::BadRequest("Something went wrong with the OCR API"))?;
 
     let t = d.text().unwrap();
 
-    let j: apis::ocr::Root = serde_json::from_str(&t)
-        .map_err(|e| {
-            println!("is bad {}", e);
-            println!("{}", &t);
-            AnalyzeError::BadJson
-        })?;
+    let j: apis::ocr::Root = serde_json::from_str(&t).map_err(|_| AnalyzeError::BadOCRJson)?;
 
     let text_ocr = &j.parsed_results[0].parsed_text.trim();
 
-    let text = WORDS.get_closest(&text_ocr).ok_or(AnalyzeError::NoCloseWord)?;
+    let text = WORDS
+        .get_closest(&text_ocr)
+        .ok_or_else(|| AnalyzeError::NoCloseWord(text_ocr.to_string()))?;
 
-    println!("Detected text was '{}'. Closest was '{}'. Reading market data... ", &text_ocr, &text);
+    println!(
+        "Detected text was '{}'. Closest was '{}'. Reading market data... ",
+        &text_ocr, &text
+    );
 
     let d = client
         .get("https://tarkov-market.com/api/v1/item")
         .query(&[("q", &text)])
         .header("x-api-key", &*MARKET_API_KEY)
         .send()
-        .map_err(|e| {
-            println!("is bad {}", e);
-            AnalyzeError::BadRequest
-        })?;
+        .map_err(|_| AnalyzeError::BadRequest("Something went wrong with the tarkov market api"))?;
 
     //dbg!(d.text().unwrap());
 
-    let js: Vec<apis::market::Root> = d.json()
-        .map_err(|e| {
-            println!("is bad {}", e);
-            AnalyzeError::BadJson
-        })?;
+    let js: Vec<apis::market::Root> = d.json().map_err(|_| AnalyzeError::BadMarketJson)?;
 
     for j in js {
         struct S(i64);
@@ -190,17 +185,36 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
         }
 
         println!("Name: {} --- {}", j.short_name, j.name);
-        println!("Trader Price: {} -> {}{} ({}{}/slot)", j.trader_name, S(j.trader_price), j.trader_price_cur, S(j.trader_price / j.slots), j.trader_price_cur);
+        println!(
+            "Trader Price: {} -> {}{} ({}{}/slot)",
+            j.trader_name,
+            S(j.trader_price),
+            j.trader_price_cur,
+            S(j.trader_price / j.slots),
+            j.trader_price_cur
+        );
+
         let rb_price = if j.trader_price_cur == "₽" {
             j.trader_price
-        }else{
+        } else {
             j.trader_price * 126
         };
 
-        for (price, why) in &[(j.price, "Lowest"), (j.avg24h_price, "24h"), (j.avg7d_price, "7d ")] {
+        for (price, why) in &[
+            (j.price, "Lowest"),
+            (j.avg24h_price, "24h"),
+            (j.avg7d_price, "7d "),
+        ] {
             let price = *price;
             let ft = get_flea_tax(rb_price, price);
-            println!("{} Flea\t{}₽ - {}₽ = {}₽ ({}₽/slot)", why, S(price), S(ft), S(price - ft), S((price - ft) / j.slots));
+            println!(
+                "{} Flea\t{}₽ - {}₽ = {}₽ ({}₽/slot)",
+                why,
+                S(price),
+                S(ft),
+                S(price - ft),
+                S((price - ft) / j.slots)
+            );
         }
     }
 

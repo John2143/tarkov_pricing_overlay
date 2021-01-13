@@ -22,7 +22,7 @@ pub fn take_screenshot() -> Result<ScreenshotData, ()> {
                     height,
                     width,
                     pixels: fr.to_vec(),
-                })
+                });
             }
             Err(_) => {}
         }
@@ -58,13 +58,17 @@ impl ScreenshotData {
         let mut img = image::RgbImage::new(self.width as u32, self.height as u32);
 
         for x in 0..self.width {
-            for y in 0 ..self.height {
+            for y in 0..self.height {
                 let p = self.get_pixel(x, y);
-                img.put_pixel(x as u32, y as u32, image::Rgb([
-                    (p >> 8 & 0xff) as u8, 
-                    (p >> 16 & 0xff) as u8,
-                    (p >> 24 & 0xff) as u8,
-                ]));
+                img.put_pixel(
+                    x as u32,
+                    y as u32,
+                    image::Rgb([
+                        (p >> 8 & 0xff) as u8,
+                        (p >> 16 & 0xff) as u8,
+                        (p >> 24 & 0xff) as u8,
+                    ]),
+                );
             }
         }
 
@@ -80,7 +84,7 @@ struct CCursorPos {
     y: c_long,
 }
 
-#[link(name="user32")]
+#[link(name = "user32")]
 extern "system" {
     fn GetCursorPos(lpPoint: &mut CCursorPos) -> c_int;
 }
@@ -93,9 +97,7 @@ pub struct CursorPos {
 
 impl CursorPos {
     pub fn get() -> Self {
-        let mut ccp = CCursorPos {
-            x: 0, y: 0,
-        };
+        let mut ccp = CCursorPos { x: 0, y: 0 };
 
         let ok = unsafe { GetCursorPos(&mut ccp) };
 

@@ -40,4 +40,3 @@ pub struct TextOverlay {
     #[serde(rename = "Message")]
     pub message: String,
 }
-

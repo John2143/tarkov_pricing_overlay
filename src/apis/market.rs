@@ -28,4 +28,3 @@ pub struct Root {
     //pub is_functional: bool,
     //pub reference: String,
 }
-

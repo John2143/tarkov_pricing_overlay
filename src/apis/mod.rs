@@ -1,2 +1,2 @@
-pub mod ocr;
 pub mod market;
+pub mod ocr;
