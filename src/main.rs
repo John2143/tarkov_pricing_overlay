@@ -59,6 +59,10 @@ fn find_top_left_corner(screen: &ScreenshotData, mouse_location: &CursorPos) -> 
     let mut x_edge = None;
     let mut y_edge = None;
 
+    if mouse_location.x >= 1920 || mouse_location.y >= 1090 {
+        return None;
+    }
+
     //let border_color_inv = 0x54_51_49_ff_u32;
     let border_color_overlay_box = 0x60_5d_58_ff_u32;
 
@@ -142,7 +146,7 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
         .text("OCREngine", "1");
 
     let d = client
-        .post("https://apipro1.ocr.space/parse/image")
+        .post("https://apipro2.ocr.space/parse/image")
         .header("apikey", &*OCR_API_KEY)
         .multipart(form)
         .send()
