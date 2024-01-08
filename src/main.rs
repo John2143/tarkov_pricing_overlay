@@ -1,5 +1,6 @@
 use std::{error::Error, fs};
 
+use clap::Parser;
 use closestmatch::ClosestMatch;
 use colored::{Colorize, ColoredString};
 use ocrs::{OcrEngine, OcrEngineParams};
@@ -7,8 +8,6 @@ use once_cell::{self, sync::Lazy};
 use rten::Model;
 use rten_tensor::NdTensorView;
 use screenshot::{CursorPos, ScreenshotData};
-
-use inputbot;
 
 mod apis;
 mod closestmatch;
@@ -25,7 +24,27 @@ static WORDS: Lazy<ClosestMatch> = Lazy::new(|| {
     )
 });
 
+#[derive(clap::Parser)]
+struct Cli {
+    /// print out a color table to show all the tier values
+    #[arg(short, long)]
+    print_table: bool
+}
+
 fn main() {
+    let cli = Cli::parse();
+    if cli.print_table {
+        print_color_table();
+        return;
+    }
+
+    input();
+    //println!("{}", WORDS.get_closest("water ootle wit filter Aquamari").unwrap());
+    //println!("{}", *MARKET_API_KEY);
+}
+
+#[cfg(feature="input")]
+fn input() {
     inputbot::KeybdKey::TKey.bind(|| {
         match analyze_pressed() {
             Ok(_) => println!("was ok"),
@@ -35,9 +54,6 @@ fn main() {
         };
     });
 
-    //println!("{}", WORDS.get_closest("water ootle wit filter Aquamari").unwrap());
-    //println!("{}", *MARKET_API_KEY);
-
     println!("Bot ready");
 
     //create_window();
@@ -45,7 +61,10 @@ fn main() {
     let t = std::thread::spawn(|| inputbot::handle_input_events());
 
     t.join().unwrap();
+
 }
+#[cfg(not(feature="input"))]
+fn input() { }
 
 #[derive(Debug)]
 enum AnalyzeError {
@@ -273,8 +292,8 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
 fn ruble_value(value: i64, cur_type: &str) -> i64 {
     match cur_type {
         "₽" => value,
-        "$" => value * 114,
-        "€" => value * 126,
+        "$" => value * 142,
+        "€" => value * 160,
         _ => unreachable!(),
     }
 }
@@ -285,15 +304,21 @@ fn color_currency(value: i64, cur_type: &str) -> ColoredString {
     let rb_price = ruble_value(value, cur_type);
 
     match rb_price {
-        x if x < 2500 => value_str.white(),
-        x if x < 5000 => value_str.blue(),
-        x if x < 7500 => value_str.yellow(),
-        x if x < 10000 => value_str.cyan(),
-        x if x < 15000 => value_str.magenta(),
-        x if x < 25000 => value_str.green(),
-        x if x < 50000 => value_str.blue().on_red(),
-        x if x < 100000 => value_str.green().on_red(),
-        x if x < 200000 => value_str.yellow().on_red(),
+        x if x <= 2500 => value_str.white(),
+        x if x <= 5000 => value_str.blue(),
+        x if x <= 7500 => value_str.yellow(),
+        x if x <= 10000 => value_str.cyan(),
+        x if x <= 15000 => value_str.magenta(),
+        x if x <= 25000 => value_str.green(),
+        x if x <= 50000 => value_str.blue().on_red(),
+        x if x <= 100000 => value_str.green().on_red(),
+        x if x <= 200000 => value_str.yellow().on_red(),
         _ => value_str.white().on_red().underline(),
+    }
+}
+
+fn print_color_table() {
+    for x in [0, 1000, 2000, 3000, 5000, 7500, 10000, 15000, 25000, 50000, 75000, 100000, 125000, 150000, 175000, 200000, 250000, 400000] {
+        println!("{} {}", color_currency(x, &"₽"), color_currency(x / 142, &"$"))
     }
 }

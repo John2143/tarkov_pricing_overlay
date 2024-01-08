@@ -4,6 +4,7 @@ pub struct ScreenshotData {
     pixels: Vec<u8>,
 }
 
+#[cfg(feature = "input")]
 pub fn take_screenshot() -> Result<ScreenshotData, ()> {
     let disp = scrap::Display::primary().unwrap();
     let mut cap = scrap::Capturer::new(disp).unwrap();
@@ -30,6 +31,11 @@ pub fn take_screenshot() -> Result<ScreenshotData, ()> {
     }
 
     Err(())
+}
+
+#[cfg(not(feature = "input"))]
+pub fn take_screenshot() -> Result<ScreenshotData, ()> {
+    unimplemented!("Please enable the input feature to take screenshots")
 }
 
 use image;
