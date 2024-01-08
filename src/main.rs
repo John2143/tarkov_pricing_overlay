@@ -49,7 +49,7 @@ fn input() {
     inputbot::KeybdKey::TKey.bind(|| {
         std::thread::spawn(move || {
             match analyze_pressed() {
-                Ok(_) => {},
+                Ok(_) => {}
                 Err(e) => {
                     println!("{:?}", e);
                 }
@@ -252,7 +252,8 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
 
 fn format_slots(value_in: ColoredString, cur_type: &str, item: &TarkovMarketItem) -> String {
     if item.slots > 1 {
-        format!(" ({}{} x {})",
+        format!(
+            " ({}{} x {})",
             value_in,
             cur_type,
             item.slots.to_string().bright_yellow(),
