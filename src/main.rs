@@ -271,7 +271,7 @@ fn print_item(item: &TarkovMarketItem) {
     let slots = format_slots(slot_value, &item.trader_price_cur, item);
 
     println!(
-        "Trader Price: {} -> {}{}{slots}",
+        "{} \t{}{}{slots}",
         item.trader_name,
         color_currency(item.trader_price, &item.trader_price_cur),
         item.trader_price_cur,

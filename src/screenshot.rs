@@ -82,14 +82,17 @@ impl ScreenshotData {
     }
 }
 
+#[cfg(feature = "input")]
 use libc::{c_int, c_long};
 
+#[cfg(feature = "input")]
 #[repr(C)]
 struct CCursorPos {
     x: c_long,
     y: c_long,
 }
 
+#[cfg(feature = "input")]
 #[link(name = "user32")]
 extern "system" {
     fn GetCursorPos(lpPoint: &mut CCursorPos) -> c_int;
@@ -101,6 +104,7 @@ pub struct CursorPos {
     pub y: u32,
 }
 
+#[cfg(feature = "input")]
 impl CursorPos {
     pub fn get() -> Self {
         let mut ccp = CCursorPos { x: 0, y: 0 };
@@ -115,5 +119,12 @@ impl CursorPos {
             x: ccp.x as u32,
             y: ccp.y as u32,
         }
+    }
+}
+
+#[cfg(not(feature = "input"))]
+impl CursorPos {
+    pub fn get() -> Self {
+        panic!()
     }
 }
