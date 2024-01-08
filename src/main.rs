@@ -252,12 +252,22 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
 
 fn print_item(item: &TarkovMarketItem) {
     println!("Name: {} ({})", item.name.red(), item.short_name.italic());
+
+    // If this is a larger than 1x1, then display the per-slot value too
+    let slots = if item.slots > 1 {
+        format!(" ({}{} x {})",
+            color_currency(item.trader_price / item.slots, &item.trader_price_cur),
+            item.trader_price_cur,
+            item.slots.to_string().bright_yellow(),
+        )
+    } else {
+        format!("")
+    };
+
     println!(
-        "Trader Price: {} -> {}{} ({}{}/slot)",
+        "Trader Price: {} -> {}{}{slots}",
         item.trader_name,
         color_currency(item.trader_price, &item.trader_price_cur),
-        item.trader_price_cur,
-        color_currency(item.trader_price / item.slots, &item.trader_price_cur),
         item.trader_price_cur,
     );
 
