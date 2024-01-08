@@ -260,7 +260,7 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
                 "{} Flea\t{}₽ - {}₽ = {}₽ ({}₽/slot)",
                 why,
                 color_currency(price, &rub),
-                color_currency(flea_tax, &rub),
+                flea_tax,
                 color_currency(price - flea_tax, &rub),
                 color_currency((price - flea_tax) / item.slots, &rub)
             );
