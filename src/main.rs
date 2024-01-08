@@ -179,18 +179,15 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
 
     // Phase 3: Recognize text
     let line_texts = engine.recognize_text(&ocr_input, &line_rects)?;
-    let mut valid_text = vec![];
-
-    for line in line_texts
+    let valid_text: Vec<_> = line_texts
         .iter()
         .flatten()
         // Filter likely spurious detections. With future model improvements
         // this should become unnecessary.
-        .filter(|l| l.to_string().len() > 1)
-    {
-        println!("{}", line);
-        valid_text.push(line.to_string());
-    }
+        .map(|l| l.to_string())
+        .filter(|l| l.len() > 1)
+        .collect();
+
     //ocrs::OcrEngine::prepare_input(&self, image)?;
 
     //let t = d.text().unwrap();
