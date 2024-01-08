@@ -39,6 +39,8 @@ jobs:
         name: windows-latest
         path: |
           target/release/tarkov_pricing_overlay.exe
+          text-detection.rten
+          text-recognition.rten
         retention-days: 2
 
   create_release:
