@@ -291,10 +291,9 @@ fn color_currency(value: i64, cur_type: &str) -> ColoredString {
         x if x < 10000 => value_str.cyan(),
         x if x < 15000 => value_str.magenta(),
         x if x < 25000 => value_str.green(),
-        x if x < 50000 => value_str.bright_red(),
-        x if x < 75000 => value_str.blue().on_red(),
+        x if x < 50000 => value_str.blue().on_red(),
         x if x < 100000 => value_str.green().on_red(),
         x if x < 200000 => value_str.yellow().on_red(),
-        _ => value_str.red().bold().underline(),
+        _ => value_str.white().on_red().underline(),
     }
 }
