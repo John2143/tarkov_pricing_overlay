@@ -49,11 +49,12 @@ fn input() {
     inputbot::KeybdKey::TKey.bind(|| {
         std::thread::spawn(move || {
             match analyze_pressed() {
-                Ok(_) => println!("was ok"),
+                Ok(_) => {},
                 Err(e) => {
                     println!("{:?}", e);
                 }
             };
+            println!("");
         });
     });
 
