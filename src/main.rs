@@ -1,5 +1,6 @@
 use std::{error::Error, fs};
 
+use apis::market::TarkovMarketItem;
 use clap::Parser;
 use closestmatch::ClosestMatch;
 use colored::{Colorize, ColoredString};
@@ -46,12 +47,14 @@ fn main() {
 #[cfg(feature="input")]
 fn input() {
     inputbot::KeybdKey::TKey.bind(|| {
-        match analyze_pressed() {
-            Ok(_) => println!("was ok"),
-            Err(e) => {
-                println!("{:?}", e);
-            }
-        };
+        std::thread::spawn(move || {
+            match analyze_pressed() {
+                Ok(_) => println!("was ok"),
+                Err(e) => {
+                    println!("{:?}", e);
+                }
+            };
+        });
     });
 
     println!("Bot ready");
@@ -70,6 +73,7 @@ fn input() { }
 enum AnalyzeError {
     ScreenshotFailed,
     CannotFindInspectBox,
+    InvalidOcr,
     BadRequest(&'static str),
     BadMarketJson,
     NoCloseWord(String),
@@ -207,15 +211,11 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
         .filter(|l| l.len() > 1)
         .collect();
 
-    //ocrs::OcrEngine::prepare_input(&self, image)?;
 
-    //let t = d.text().unwrap();
+    // We have pretty strict text detection, just assume the first match is the text
+    let text_ocr = valid_text.get(0).ok_or(AnalyzeError::InvalidOcr)?;
 
-    //let j: apis::ocr::Root = serde_json::from_str(&t).map_err(|_| AnalyzeError::BadOCRJson)?;
-
-    //let text_ocr = &j.parsed_results[0].parsed_text.trim();
-    let text_ocr = &valid_text[0];
-
+    // Find the closest matching tarkov item
     let text = WORDS
         .get_closest(&text_ocr)
         .ok_or_else(|| AnalyzeError::NoCloseWord(text_ocr.to_string()))?;
@@ -236,57 +236,53 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
     let text = d.text().unwrap();
 
     let items_to_price: apis::market::Root = serde_json::from_str(&text).map_err(|e| {
+        // if we fail, just dump the whole payload
         dbg!(text);
         dbg!(e);
         AnalyzeError::BadMarketJson
     })?;
 
     for item in items_to_price {
-        struct S(i64);
-        impl std::fmt::Display for S {
-            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
-                use num_format::{Locale, ToFormattedString};
-                write!(f, "{}", self.0.to_formatted_string(&Locale::en))?;
-                Ok(())
-            }
-        }
-
-        println!("Name: {} ({})", item.name.red(), item.short_name.italic());
-        println!(
-            "Trader Price: {} -> {}{} ({}{}/slot)",
-            item.trader_name,
-            color_currency(item.trader_price, &item.trader_price_cur),
-            item.trader_price_cur,
-            color_currency(item.trader_price / item.slots, &item.trader_price_cur),
-            item.trader_price_cur,
-        );
-
-        let rb_price = if item.trader_price_cur == "₽" {
-            item.trader_price
-        } else {
-            item.trader_price * 126
-        };
-
-        for (price, why) in &[
-            (item.price, "Lowest"),
-            (item.avg24h_price, "24h"),
-            (item.avg7days_price, "7d "),
-        ] {
-            let price = *price;
-            let flea_tax = get_flea_tax(rb_price, price);
-            let rub = "₽";
-            println!(
-                "{} Flea\t{}₽ - {}₽ = {}₽ ({}₽/slot)",
-                why,
-                color_currency(price, &rub),
-                flea_tax,
-                color_currency(price - flea_tax, &rub),
-                color_currency((price - flea_tax) / item.slots, &rub)
-            );
-        }
+        print_item(&item);
     }
 
     Ok(())
+}
+
+fn print_item(item: &TarkovMarketItem) {
+    println!("Name: {} ({})", item.name.red(), item.short_name.italic());
+    println!(
+        "Trader Price: {} -> {}{} ({}{}/slot)",
+        item.trader_name,
+        color_currency(item.trader_price, &item.trader_price_cur),
+        item.trader_price_cur,
+        color_currency(item.trader_price / item.slots, &item.trader_price_cur),
+        item.trader_price_cur,
+    );
+
+    let rb_price = if item.trader_price_cur == "₽" {
+        item.trader_price
+    } else {
+        item.trader_price * 126
+    };
+
+    for (price, why) in &[
+        (item.price, "Lowest"),
+        (item.avg24h_price, "24h"),
+        (item.avg7days_price, "7d "),
+    ] {
+        let price = *price;
+        let flea_tax = get_flea_tax(rb_price, price);
+        let rub = "₽";
+        println!(
+            "{} Flea\t{}₽ - {}₽ = {}₽ ({}₽/slot)",
+            why,
+            color_currency(price, &rub),
+            flea_tax,
+            color_currency(price - flea_tax, &rub),
+            color_currency((price - flea_tax) / item.slots, &rub)
+        );
+    }
 }
 
 fn ruble_value(value: i64, cur_type: &str) -> i64 {

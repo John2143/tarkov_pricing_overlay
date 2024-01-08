@@ -112,7 +112,7 @@ impl ClosestMatch {
 
 #[cfg(test)]
 mod tests {
-    //use ClosestMatch;
+    use crate::closestmatch::ClosestMatch;
 
     #[test]
     fn it_works() {
@@ -125,7 +125,7 @@ mod tests {
             .to_vec(),
             [1, 2, 3].to_vec(),
         );
-        let closest = cm.get_closest("hlo".to_string());
+        let closest = cm.get_closest("hlo");
         println!("{:?}", closest);
     }
 }

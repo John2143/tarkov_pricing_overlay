@@ -2,11 +2,11 @@
 use serde::Deserialize;
 use serde::Serialize;
 
-pub type Root = Vec<Root2>;
+pub type Root = Vec<TarkovMarketItem>;
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct Root2 {
+pub struct TarkovMarketItem {
     pub uid: String,
     pub name: String,
     pub banned_on_flea: bool,
