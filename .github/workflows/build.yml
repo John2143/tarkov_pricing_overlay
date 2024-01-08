@@ -31,7 +31,7 @@ jobs:
         curl "http://2143.me/f/JmpB.rten" -o text-recognition.rten
         echo ${{ secrets.tarkov_key }} >> market_api_key.txt
 
-    - run: cargo build --release --no-default-features
+    - run: cargo build --release
 
     - name: Upload Executable
       uses: actions/upload-artifact@v3
