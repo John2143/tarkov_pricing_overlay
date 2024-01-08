@@ -250,19 +250,24 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
     Ok(())
 }
 
-fn print_item(item: &TarkovMarketItem) {
-    println!("Name: {} ({})", item.name.red(), item.short_name.italic());
-
-    // If this is a larger than 1x1, then display the per-slot value too
-    let slots = if item.slots > 1 {
+fn format_slots(value_in: ColoredString, cur_type: &str, item: &TarkovMarketItem) -> String {
+    if item.slots > 1 {
         format!(" ({}{} x {})",
-            color_currency(item.trader_price / item.slots, &item.trader_price_cur),
-            item.trader_price_cur,
+            value_in,
+            cur_type,
             item.slots.to_string().bright_yellow(),
         )
     } else {
         format!("")
-    };
+    }
+}
+
+fn print_item(item: &TarkovMarketItem) {
+    println!("Name: {} ({})", item.name.red(), item.short_name.italic());
+
+    // If this is a larger than 1x1, then display the per-slot value too
+    let slot_value = color_currency(item.trader_price / item.slots, &item.trader_price_cur);
+    let slots = format_slots(slot_value, &item.trader_price_cur, item);
 
     println!(
         "Trader Price: {} -> {}{}{slots}",
@@ -271,27 +276,26 @@ fn print_item(item: &TarkovMarketItem) {
         item.trader_price_cur,
     );
 
-    let rb_price = if item.trader_price_cur == "₽" {
-        item.trader_price
-    } else {
-        item.trader_price * 126
-    };
-
+    // the flea tax is based on how much the trader buys it for
+    let trader_ruble_value = ruble_value(item.trader_price, &item.trader_price_cur);
     for (price, why) in &[
         (item.price, "Lowest"),
         (item.avg24h_price, "24h"),
         (item.avg7days_price, "7d "),
     ] {
         let price = *price;
-        let flea_tax = get_flea_tax(rb_price, price);
+        let flea_tax = get_flea_tax(trader_ruble_value, price);
         let rub = "₽";
+
+        let slot_value = color_currency(price - flea_tax, rub);
+        let slots = format_slots(slot_value, rub, item);
+
         println!(
-            "{} Flea\t{}₽ - {}₽ = {}₽ ({}₽/slot)",
+            "{} Flea\t{}₽ - {}₽ = {}₽{slots}",
             why,
             color_currency(price, &rub),
             flea_tax,
             color_currency(price - flea_tax, &rub),
-            color_currency((price - flea_tax) / item.slots, &rub)
         );
     }
 }
