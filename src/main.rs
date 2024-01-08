@@ -190,7 +190,7 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
     //let j: apis::ocr::Root = serde_json::from_str(&t).map_err(|_| AnalyzeError::BadOCRJson)?;
 
     //let text_ocr = &j.parsed_results[0].parsed_text.trim();
-    let text_ocr = valid_text[0];
+    let text_ocr = &valid_text[0];
 
     let text = WORDS
         .get_closest(&text_ocr)
