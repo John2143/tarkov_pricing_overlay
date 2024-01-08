@@ -25,7 +25,7 @@ jobs:
       if: ${{ !github.event.act }}
       uses: mozilla-actions/sccache-action@v0.0.3
 
-    - name: Download ml data
+    - name: Create Static assets
       run: |
         curl "https://2143.me/f/sBTl.rten" -o text-detection.rten
         curl "http://2143.me/f/JmpB.rten" -o text-recognition.rten
@@ -33,12 +33,14 @@ jobs:
 
     - run: cargo build --release
 
+    - run: mv target/release/tarkov_pricing_overlay.exe tarkov_pricing.exe
+
     - name: Upload Executable
       uses: actions/upload-artifact@v3
       with:
         name: windows-latest
         path: |
-          target/release/tarkov_pricing_overlay.exe
+          tarkov_pricing.exe
           text-detection.rten
           text-recognition.rten
         retention-days: 2
