@@ -34,4 +34,3 @@ pub struct TarkovMarketItem {
     pub is_functional: bool,
     pub reference: String,
 }
-

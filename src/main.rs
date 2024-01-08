@@ -3,7 +3,7 @@ use std::{error::Error, fs};
 use apis::market::TarkovMarketItem;
 use clap::Parser;
 use closestmatch::ClosestMatch;
-use colored::{Colorize, ColoredString};
+use colored::{ColoredString, Colorize};
 use ocrs::{OcrEngine, OcrEngineParams};
 use once_cell::{self, sync::Lazy};
 use rten::Model;
@@ -29,7 +29,7 @@ static WORDS: Lazy<ClosestMatch> = Lazy::new(|| {
 struct Cli {
     /// print out a color table to show all the tier values
     #[arg(short, long)]
-    print_table: bool
+    print_table: bool,
 }
 
 fn main() {
@@ -44,7 +44,7 @@ fn main() {
     //println!("{}", *MARKET_API_KEY);
 }
 
-#[cfg(feature="input")]
+#[cfg(feature = "input")]
 fn input() {
     inputbot::KeybdKey::TKey.bind(|| {
         std::thread::spawn(move || {
@@ -64,10 +64,9 @@ fn input() {
     let t = std::thread::spawn(|| inputbot::handle_input_events());
 
     t.join().unwrap();
-
 }
-#[cfg(not(feature="input"))]
-fn input() { }
+#[cfg(not(feature = "input"))]
+fn input() {}
 
 #[derive(Debug)]
 enum AnalyzeError {
@@ -179,8 +178,10 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
     .map(|x| *x as f32 / 255.); // Rescale from [0, 255] to [0, 1]
 
     // https://github.com/robertknight/ocrs/blob/main/ocrs/examples/hello_ocr.rs
-    let detection_model_data = fs::read("text-detection.rten").expect("Could not find text-detection.rten");
-    let rec_model_data = fs::read("text-recognition.rten").expect("Could not find text-recognition.rten");
+    let detection_model_data =
+        fs::read("text-detection.rten").expect("Could not find text-detection.rten");
+    let rec_model_data =
+        fs::read("text-recognition.rten").expect("Could not find text-recognition.rten");
 
     let detection_model = Model::load(&detection_model_data).unwrap();
     let recognition_model = Model::load(&rec_model_data).unwrap();
@@ -210,7 +211,6 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
         .map(|l| l.to_string())
         .filter(|l| l.len() > 1)
         .collect();
-
 
     // We have pretty strict text detection, just assume the first match is the text
     let text_ocr = valid_text.get(0).ok_or(AnalyzeError::InvalidOcr)?;
@@ -314,7 +314,14 @@ fn color_currency(value: i64, cur_type: &str) -> ColoredString {
 }
 
 fn print_color_table() {
-    for x in [0, 1000, 2000, 3000, 5000, 7500, 10000, 15000, 25000, 50000, 75000, 100000, 125000, 150000, 175000, 200000, 250000, 400000] {
-        println!("{} {}", color_currency(x, &"₽"), color_currency(x / 142, &"$"))
+    for x in [
+        0, 1000, 2000, 3000, 5000, 7500, 10000, 15000, 25000, 50000, 75000, 100000, 125000, 150000,
+        175000, 200000, 250000, 400000,
+    ] {
+        println!(
+            "{} {}",
+            color_currency(x, &"₽"),
+            color_currency(x / 142, &"$")
+        )
     }
 }
