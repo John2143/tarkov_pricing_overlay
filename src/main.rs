@@ -217,9 +217,10 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
         .send()
         .map_err(|_| AnalyzeError::BadRequest("Something went wrong with the tarkov market api"))?;
 
-    let text = dbg!(d.text().unwrap());
+    let text = d.text().unwrap();
 
     let js: apis::market::Root = serde_json::from_str(&text).map_err(|e| {
+        dbg!(text);
         dbg!(e);
         AnalyzeError::BadMarketJson
     })?;
