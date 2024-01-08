@@ -29,14 +29,14 @@ jobs:
       run: |
         curl "https://2143.me/f/sBTl.rten" -o text-detection.rten
         curl "http://2143.me/f/JmpB.rten" -o text-recognition.rten
-        echo ${{ secret.tarkov_key }} >> market_api_key.txt
+        echo ${{ secrets.tarkov_key }} >> market_api_key.txt
 
     - run: cargo build --release --no-default-features
 
     - name: Upload Executable
       uses: actions/upload-artifact@v3
       with:
-        name: ${{ matrix.os }}
+        name: windows-latest
         path: |
           target/release/tarkov_pricing_overlay.exe
         retention-days: 2
