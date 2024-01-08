@@ -2209,6 +2209,7 @@ dependencies = [
  "once_cell",
  "rayon",
  "reqwest",
+ "rten",
  "rten-imageio",
  "rten-tensor",
  "scrap",

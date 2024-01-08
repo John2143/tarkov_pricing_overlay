@@ -1,8 +1,9 @@
-use std::error::Error;
+use std::{error::Error, fs};
 
 use closestmatch::ClosestMatch;
 use ocrs::{OcrEngine, OcrEngineParams};
 use once_cell::{self, sync::Lazy};
+use rten::Model;
 use rten_tensor::NdTensorView;
 use screenshot::{CursorPos, ScreenshotData};
 
@@ -155,10 +156,17 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
     .map(|x| *x as f32 / 255.); // Rescale from [0, 255] to [0, 1]
 
     // https://github.com/robertknight/ocrs/blob/main/ocrs/examples/hello_ocr.rs
-    let engine_params = OcrEngineParams {
+    let detection_model_data = fs::read("text-detection.rten").expect("Could not find text-detection.rten");
+    let rec_model_data = fs::read("text-recognition.rten").expect("Could not find text-recognition.rten");
+
+    let detection_model = Model::load(&detection_model_data).unwrap();
+    let recognition_model = Model::load(&rec_model_data).unwrap();
+
+    let engine = OcrEngine::new(OcrEngineParams {
+        detection_model: Some(detection_model),
+        recognition_model: Some(recognition_model),
         ..Default::default()
-    };
-    let engine = OcrEngine::new(engine_params)?;
+    })?;
     // Apply standard image pre-processing expected by this library (convert
     // to greyscale, map range to [-0.5, 0.5]).
     let ocr_input = engine.prepare_input(image_tensor.view())?;
