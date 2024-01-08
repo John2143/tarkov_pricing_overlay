@@ -211,7 +211,7 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
 
     let client = reqwest::blocking::Client::new();
     let d = client
-        .get("https://tarkov-market.com/api/v1/item")
+        .get("https://api.tarkov-market.app/api/v1/item")
         .query(&[("q", &text)])
         .header("x-api-key", &*MARKET_API_KEY)
         .send()
