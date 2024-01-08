@@ -232,7 +232,7 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
             }
         }
 
-        println!("Name: {} --- {}", item.short_name.red(), item.name.red());
+        println!("Name: {} ({})", item.name.red(), item.short_name.italic());
         println!(
             "Trader Price: {} -> {} ({}/slot)",
             item.trader_name,
