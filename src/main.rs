@@ -288,7 +288,7 @@ fn print_item(item: &TarkovMarketItem) {
         let flea_tax = get_flea_tax(trader_ruble_value, price);
         let rub = "₽";
 
-        let slot_value = color_currency(price - flea_tax, rub);
+        let slot_value = color_currency((price - flea_tax) / item.slots, rub);
         let slots = format_slots(slot_value, rub, item);
 
         println!(
