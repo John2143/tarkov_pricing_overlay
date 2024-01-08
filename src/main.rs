@@ -219,7 +219,10 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
 
     //dbg!(d.text().unwrap());
 
-    let js: apis::market::Root = d.json().map_err(|_| AnalyzeError::BadMarketJson)?;
+    let js: apis::market::Root = d.json().map_err(|e| {
+        dbg!(e);
+        AnalyzeError::BadMarketJson
+    })?;
 
     for j in js {
         struct S(i64);
