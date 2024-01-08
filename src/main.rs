@@ -276,6 +276,7 @@ fn print_item(item: &TarkovMarketItem) {
         color_currency(item.trader_price, &item.trader_price_cur),
         item.trader_price_cur,
     );
+    println!("Market\tValue  -  Tax  =  Profit");
 
     // the flea tax is based on how much the trader buys it for
     let trader_ruble_value = ruble_value(item.trader_price, &item.trader_price_cur);
