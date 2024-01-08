@@ -1,5 +1,10 @@
+use std::error::Error;
+
 use closestmatch::ClosestMatch;
+use ocrs::{OcrEngine, OcrEngineParams};
 use once_cell::{self, sync::Lazy};
+use rten_imageio::read_image;
+use rten_tensor::NdTensorView;
 use screenshot::{CursorPos, ScreenshotData};
 
 use inputbot;
@@ -7,9 +12,6 @@ use inputbot;
 mod apis;
 mod closestmatch;
 mod screenshot;
-
-static OCR_API_KEY: Lazy<String> =
-    Lazy::new(|| include_str!("../ocr_api_key.txt").trim().to_owned());
 
 static MARKET_API_KEY: Lazy<String> =
     Lazy::new(|| include_str!("../market_api_key.txt").trim().to_owned());
@@ -34,7 +36,6 @@ fn main() {
 
     //println!("{}", WORDS.get_closest("water ootle wit filter Aquamari").unwrap());
     //println!("{}", *MARKET_API_KEY);
-    //println!("{}", *OCR_API_KEY);
 
     println!("Bot ready");
 
@@ -53,6 +54,13 @@ enum AnalyzeError {
     BadOCRJson,
     BadMarketJson,
     NoCloseWord(String),
+    Other(Box<dyn Error>),
+}
+
+impl From<Box<dyn Error>> for AnalyzeError {
+    fn from(value: Box<dyn Error>) -> Self {
+        Self::Other(value)
+    }
 }
 
 fn find_top_left_corner(screen: &ScreenshotData, mouse_location: &CursorPos) -> Option<(u32, u32)> {
@@ -129,34 +137,62 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
 
     let i = screen.to_image().unwrap();
     let subimage = image::SubImage::new(&i, tl_corner.0 + offset, tl_corner.1, w, h);
-    let mut png_buffer = vec![];
-    let enc = image::codecs::png::PngEncoder::new(&mut png_buffer);
-    enc.encode(&subimage.to_image().as_raw(), w, h, image::ColorType::Rgb8)
-        .unwrap();
+    let subimage = subimage.to_image();
 
-    println!("Screenshot taken, parsing image as text...");
+    //let (width, height) = subimage.dimensions();
+    let layout = subimage.sample_layout();
 
-    let client = reqwest::blocking::Client::new();
-    let form = reqwest::blocking::multipart::Form::new()
-        .text(
-            "base64Image",
-            format!("data:image/png;base64,{}", base64::encode(png_buffer)),
-        )
-        .text("language", "eng")
-        .text("OCREngine", "1");
+    let image_tensor = NdTensorView::from_slice(
+        subimage.as_raw().as_slice(),
+        [h as usize, w as usize, 3],
+        Some([
+            layout.height_stride,
+            layout.width_stride,
+            layout.channel_stride,
+        ]),
+    )
+    .unwrap()
+    .permuted([2, 0, 1]) // HWC => CHW
+    .to_tensor() // Make tensor contiguous, which makes `map` faster
+    .map(|x| *x as f32 / 255.); // Rescale from [0, 255] to [0, 1]
 
-    let d = client
-        .post("https://apipro2.ocr.space/parse/image")
-        .header("apikey", &*OCR_API_KEY)
-        .multipart(form)
-        .send()
-        .map_err(|_| AnalyzeError::BadRequest("Something went wrong with the OCR API"))?;
+    // https://github.com/robertknight/ocrs/blob/main/ocrs/examples/hello_ocr.rs
+    let engine_params = OcrEngineParams {
+        ..Default::default()
+    };
+    let engine = OcrEngine::new(engine_params)?;
+    // Apply standard image pre-processing expected by this library (convert
+    // to greyscale, map range to [-0.5, 0.5]).
+    let ocr_input = engine.prepare_input(image_tensor.view())?;
 
-    let t = d.text().unwrap();
+    // Phase 1: Detect text words
+    let word_rects = engine.detect_words(&ocr_input)?;
 
-    let j: apis::ocr::Root = serde_json::from_str(&t).map_err(|_| AnalyzeError::BadOCRJson)?;
+    // Phase 2: Perform layout analysis
+    let line_rects = engine.find_text_lines(&ocr_input, &word_rects);
 
-    let text_ocr = &j.parsed_results[0].parsed_text.trim();
+    // Phase 3: Recognize text
+    let line_texts = engine.recognize_text(&ocr_input, &line_rects)?;
+    let mut valid_text = vec![];
+
+    for line in line_texts
+        .iter()
+        .flatten()
+        // Filter likely spurious detections. With future model improvements
+        // this should become unnecessary.
+        .filter(|l| l.to_string().len() > 1)
+    {
+        println!("{}", line);
+        valid_text.push(line.to_string());
+    }
+    //ocrs::OcrEngine::prepare_input(&self, image)?;
+
+    //let t = d.text().unwrap();
+
+    //let j: apis::ocr::Root = serde_json::from_str(&t).map_err(|_| AnalyzeError::BadOCRJson)?;
+
+    //let text_ocr = &j.parsed_results[0].parsed_text.trim();
+    let text_ocr = valid_text[0];
 
     let text = WORDS
         .get_closest(&text_ocr)
@@ -167,6 +203,7 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
         &text_ocr, &text
     );
 
+    let client = reqwest::blocking::Client::new();
     let d = client
         .get("https://tarkov-market.com/api/v1/item")
         .query(&[("q", &text)])
