@@ -331,14 +331,16 @@ fn color_currency(value: i64, cur_type: &str) -> ColoredString {
 }
 
 fn print_color_table() {
+    println!("     Rubles         Dollars           Euros");
     for x in [
         0, 1000, 2000, 3000, 5000, 7500, 10000, 15000, 25000, 50000, 75000, 100000, 125000, 150000,
         175000, 200000, 250000, 400000,
     ] {
         println!(
-            "{} {}",
+            "{:>10}₽\t{:>10}$\t{:>10}€",
             color_currency(x, &"₽"),
-            color_currency(x / 142, &"$")
+            color_currency(x / 142, &"$"),
+            color_currency(x / 160, &"€"),
         )
     }
 }
