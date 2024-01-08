@@ -219,7 +219,7 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
 
     //dbg!(d.text().unwrap());
 
-    let js: Vec<apis::market::Root> = d.json().map_err(|_| AnalyzeError::BadMarketJson)?;
+    let js: apis::market::Root = d.json().map_err(|_| AnalyzeError::BadMarketJson)?;
 
     for j in js {
         struct S(i64);
@@ -250,7 +250,7 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
         for (price, why) in &[
             (j.price, "Lowest"),
             (j.avg24h_price, "24h"),
-            (j.avg7d_price, "7d "),
+            (j.avg7days_price, "7d "),
         ] {
             let price = *price;
             let ft = get_flea_tax(rb_price, price);
