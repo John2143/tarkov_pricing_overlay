@@ -234,10 +234,12 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
 
         println!("Name: {} ({})", item.name.red(), item.short_name.italic());
         println!(
-            "Trader Price: {} -> {} ({}/slot)",
+            "Trader Price: {} -> {}{} ({}{}/slot)",
             item.trader_name,
             color_currency(item.trader_price, &item.trader_price_cur),
+            item.trader_price_cur,
             color_currency(item.trader_price / item.slots, &item.trader_price_cur),
+            item.trader_price_cur,
         );
 
         let rb_price = if item.trader_price_cur == "₽" {
