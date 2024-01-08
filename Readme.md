@@ -7,4 +7,6 @@
 
 # Example
 
-![Example of pressing t](https://2143.me/f/zHlL.png)
+![Example of pressing t](http://2143.me/f/6uCn.png)
+
+![Table](http://2143.me/f/xMtc.png)

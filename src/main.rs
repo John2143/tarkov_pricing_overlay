@@ -271,12 +271,11 @@ fn print_item(item: &TarkovMarketItem) {
     let slots = format_slots(slot_value, &item.trader_price_cur, item);
 
     println!(
-        "{} \t{}{}{slots}",
+        "{}  \t{}{}{slots}",
         item.trader_name,
         color_currency(item.trader_price, &item.trader_price_cur),
         item.trader_price_cur,
     );
-    println!("Market\tValue  -  Tax  =  Profit");
 
     // the flea tax is based on how much the trader buys it for
     let trader_ruble_value = ruble_value(item.trader_price, &item.trader_price_cur);
@@ -293,11 +292,11 @@ fn print_item(item: &TarkovMarketItem) {
         let slots = format_slots(slot_value, rub, item);
 
         println!(
-            "{} Flea\t{}₽ - {}₽ = {}₽{slots}",
+            "{} Flea\t{}₽{slots} = {}₽ - {}k₽ tax",
             why,
-            color_currency(price, &rub),
-            flea_tax,
             color_currency(price - flea_tax, &rub),
+            color_currency(price, &rub),
+            flea_tax / 1000,
         );
     }
 }
@@ -317,16 +316,17 @@ fn color_currency(value: i64, cur_type: &str) -> ColoredString {
     let rb_price = ruble_value(value, cur_type);
 
     match rb_price {
-        x if x <= 2500 => value_str.white(),
-        x if x <= 5000 => value_str.blue(),
-        x if x <= 7500 => value_str.yellow(),
-        x if x <= 10000 => value_str.cyan(),
-        x if x <= 15000 => value_str.magenta(),
-        x if x <= 25000 => value_str.green(),
-        x if x <= 50000 => value_str.blue().on_red(),
-        x if x <= 100000 => value_str.green().on_red(),
-        x if x <= 200000 => value_str.yellow().on_red(),
-        _ => value_str.white().on_red().underline(),
+
+        x if x <= 2500   => value_str.white(),
+        x if x <= 5000   => value_str.white(),
+        x if x <= 10000  => value_str.blue(),
+        x if x <= 25000  => value_str.cyan(),
+        x if x <= 50000  => value_str.magenta(),
+        x if x <= 100000 => value_str.green(),
+        x if x <= 200000 => value_str.yellow(),
+        x if x <= 300000 => value_str.red(),
+        x if x <= 500000 => value_str.bright_red(),
+        _ => value_str.black().on_white(),
     }
 }
 
@@ -334,7 +334,7 @@ fn print_color_table() {
     println!("     Rubles         Dollars           Euros");
     for x in [
         0, 1000, 2000, 3000, 5000, 7500, 10000, 15000, 25000, 50000, 75000, 100000, 125000, 150000,
-        175000, 200000, 250000, 400000,
+        175000, 200000, 250000, 400000, 600000, 1000000, 2000000
     ] {
         println!(
             "{:>10}₽\t{:>10}$\t{:>10}€",
@@ -343,4 +343,16 @@ fn print_color_table() {
             color_currency(x / 160, &"€"),
         )
     }
+
+    println!("Item Examples");
+    println!("");
+    print_item(&serde_json::from_str(r#"{"uid":"d43e286e-2165-40f3-a036-63cfca09b4d7","name":"Bottle of water (0.6L)","bannedOnFlea":false,"haveMarketData":true,"tags":["Provisions","Drinks"],"shortName":"Water","price":12777,"basePrice":2450,"avg24hPrice":12474,"avg7daysPrice":11861,"traderName":"Therapist","traderPrice":1544,"traderPriceCur":"₽","traderPriceRub":1544,"updated":"2024-01-07T23:54:16.662Z","slots":2,"diff24h":2.43,"diff7days":7.72,"icon":"https://cdn.tarkov-market.app/images/items/0.6L_water_bottle_sm.png?r=1695114999931","link":"https://tarkov-market.com/item/0.6L_water_bottle","wikiLink":"https://escapefromtarkov.fandom.com/wiki/Bottle_of_water_(0.6L)","img":"https://cdn.tarkov-market.app/images/items/0.6L_water_bottle_sm.png?r=1695114999931","imgBig":"https://cdn.tarkov-market.app/images/items/0.6L_water_bottle_lg.png?r=1695114999931","bsgId":"5448fee04bdc2dbc018b4567","isFunctional":true,"reference":"https://www.patreon.com/tarkov_market"}"#).unwrap());
+    println!("");
+    print_item(&serde_json::from_str(r#"{"uid":"04b8f060-9afd-424d-812b-e9b1c00a407f","name":"Dogtag case","bannedOnFlea":false,"haveMarketData":true,"tags":["Containers"],"shortName":"Dogtags","price":311111,"basePrice":310000,"avg24hPrice":316365,"avg7daysPrice":327732,"traderName":"Therapist","traderPrice":195300,"traderPriceCur":"₽","traderPriceRub":195300,"updated":"2024-01-08T07:09:31.298Z","slots":1,"diff24h":-1.66,"diff7days":-5.07,"icon":"https://cdn.tarkov-market.app/images/items/Dogtag_case_sm.png?r=1695114338851","link":"https://tarkov-market.com/item/Dogtag_case","wikiLink":"https://escapefromtarkov.fandom.com/wiki/Dogtag_case","img":"https://cdn.tarkov-market.app/images/items/Dogtag_case_sm.png?r=1695114338851","imgBig":"https://cdn.tarkov-market.app/images/items/Dogtag_case_lg.png?r=1695114338851","bsgId":"5c093e3486f77430cb02e593","isFunctional":true,"reference":"https://www.patreon.com/tarkov_market"}"#).unwrap());
+    println!("");
+    print_item(&serde_json::from_str(r#"{"uid":"b02f4698-f57d-44e6-8ccb-e786a526a456","name":"Golden rooster figurine","bannedOnFlea":false,"haveMarketData":true,"tags":["Barter"],"shortName":"Rooster","price":60000,"basePrice":90566,"avg24hPrice":65197,"avg7daysPrice":66121,"traderName":"Therapist","traderPrice":57057,"traderPriceCur":"₽","traderPriceRub":57057,"updated":"2024-01-08T05:57:40.907Z","slots":4,"diff24h":-7.97,"diff7days":-9.26,"icon":"https://cdn.tarkov-market.app/images/items/Golden_rooster_sm.png?r=1695112913793","link":"https://tarkov-market.com/item/Golden_rooster","wikiLink":"https://escapefromtarkov.fandom.com/wiki/Golden_rooster","img":"https://cdn.tarkov-market.app/images/items/Golden_rooster_sm.png?r=1695112913793","imgBig":"https://cdn.tarkov-market.app/images/items/Golden_rooster_lg.png?r=1695112913793","bsgId":"5bc9bc53d4351e00367fbcee","isFunctional":true,"reference":"https://www.patreon.com/tarkov_market"}"#).unwrap());
+    println!("");
+    print_item(&serde_json::from_str(r#"{"uid":"a7f7568c-61fb-437e-9f71-06e58aae26ba","name":"LEDX Skin Transilluminator","bannedOnFlea":false,"haveMarketData":true,"tags":["Barter"],"shortName":"LEDX","price":704000,"basePrice":970000,"avg24hPrice":704086,"avg7daysPrice":684052,"traderName":"Therapist","traderPrice":611100,"traderPriceCur":"₽","traderPriceRub":611100,"updated":"2024-01-08T06:58:05.026Z","slots":1,"diff24h":-0.01,"diff7days":2.92,"icon":"https://cdn.tarkov-market.app/images/items/ledx_skin_transilluminator_sm.png?r=1695112498138","link":"https://tarkov-market.com/item/ledx_skin_transilluminator","wikiLink":"https://escapefromtarkov.fandom.com/wiki/LEDX_Skin_Transilluminator","img":"https://cdn.tarkov-market.app/images/items/ledx_skin_transilluminator_sm.png?r=1695112498138","imgBig":"https://cdn.tarkov-market.app/images/items/ledx_skin_transilluminator_lg.png?r=1695112498138","bsgId":"5c0530ee86f774697952d952","isFunctional":true,"reference":"https://www.patreon.com/tarkov_market"}"#).unwrap());
+    println!("");
+    print_item(&serde_json::from_str(r#"{"uid":"2df5e427-5bee-4524-a204-3e4bf157a111","name":"Team Wendy EXFIL Ballistic Helmet (Coyote Brown)","bannedOnFlea":true,"haveMarketData":false,"tags":["Gear","Helmets"],"shortName":"EXFIL","price":131200,"basePrice":5068,"avg24hPrice":131200,"avg7daysPrice":131200,"traderName":"Ragman","traderPrice":3142,"traderPriceCur":"₽","traderPriceRub":3142,"updated":"2021-12-10T09:36:23.647Z","slots":4,"diff24h":0,"diff7days":0,"icon":"https://cdn.tarkov-market.app/images/items/2df5e427-5bee-4524-a204-3e4bf157a111_sm.png?r=1","link":"https://tarkov-market.com/item/Team_Wendy_EXFIL_Ballistic_Helmet_Coyote","wikiLink":"https://escapefromtarkov.fandom.com/wiki/Team_Wendy_EXFIL_Ballistic_Helmet","img":"https://cdn.tarkov-market.app/images/items/2df5e427-5bee-4524-a204-3e4bf157a111_sm.png?r=1","imgBig":"https://cdn.tarkov-market.app/images/items/2df5e427-5bee-4524-a204-3e4bf157a111_lg.png?r=1","bsgId":"5e01ef6886f77445f643baa4","isFunctional":true,"reference":"https://www.patreon.com/tarkov_market"}"#).unwrap());
 }
