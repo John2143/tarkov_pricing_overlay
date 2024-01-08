@@ -1,6 +1,7 @@
 use std::{error::Error, fs};
 
 use closestmatch::ClosestMatch;
+use colored::{Colorize, ColoredString};
 use ocrs::{OcrEngine, OcrEngineParams};
 use once_cell::{self, sync::Lazy};
 use rten::Model;
@@ -51,7 +52,6 @@ enum AnalyzeError {
     ScreenshotFailed,
     CannotFindInspectBox,
     BadRequest(&'static str),
-    BadOCRJson,
     BadMarketJson,
     NoCloseWord(String),
     Other(Box<dyn Error>),
@@ -216,13 +216,13 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
 
     let text = d.text().unwrap();
 
-    let js: apis::market::Root = serde_json::from_str(&text).map_err(|e| {
+    let items_to_price: apis::market::Root = serde_json::from_str(&text).map_err(|e| {
         dbg!(text);
         dbg!(e);
         AnalyzeError::BadMarketJson
     })?;
 
-    for j in js {
+    for item in items_to_price {
         struct S(i64);
         impl std::fmt::Display for S {
             fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> Result<(), std::fmt::Error> {
@@ -232,39 +232,47 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
             }
         }
 
-        println!("Name: {} --- {}", j.short_name, j.name);
+        println!("Name: {} --- {}", item.short_name.red(), item.name.red());
         println!(
-            "Trader Price: {} -> {}{} ({}{}/slot)",
-            j.trader_name,
-            S(j.trader_price),
-            j.trader_price_cur,
-            S(j.trader_price / j.slots),
-            j.trader_price_cur
+            "Trader Price: {} -> {} ({}/slot)",
+            item.trader_name,
+            color_currency(item.trader_price, &item.trader_price_cur),
+            color_currency(item.trader_price / item.slots, &item.trader_price_cur),
         );
 
-        let rb_price = if j.trader_price_cur == "₽" {
-            j.trader_price
+        let rb_price = if item.trader_price_cur == "₽" {
+            item.trader_price
         } else {
-            j.trader_price * 126
+            item.trader_price * 126
         };
 
         for (price, why) in &[
-            (j.price, "Lowest"),
-            (j.avg24h_price, "24h"),
-            (j.avg7days_price, "7d "),
+            (item.price, "Lowest"),
+            (item.avg24h_price, "24h"),
+            (item.avg7days_price, "7d "),
         ] {
             let price = *price;
-            let ft = get_flea_tax(rb_price, price);
+            let flea_tax = get_flea_tax(rb_price, price);
+            let rub = "₽";
             println!(
                 "{} Flea\t{}₽ - {}₽ = {}₽ ({}₽/slot)",
                 why,
-                S(price),
-                S(ft),
-                S(price - ft),
-                S((price - ft) / j.slots)
+                color_currency(price, &rub),
+                color_currency(flea_tax, &rub),
+                color_currency(price - flea_tax, &rub),
+                color_currency((price - flea_tax) / item.slots, &rub)
             );
         }
     }
 
     Ok(())
+}
+
+fn color_currency(value: i64, cur_type: &str) -> ColoredString {
+    let value_str = format!("{value}{cur_type}");
+    match cur_type {
+        "₽" => value_str.bright_blue(),
+        "$" => value_str.bright_cyan(),
+        _ => value_str.magenta(),
+    }
 }
