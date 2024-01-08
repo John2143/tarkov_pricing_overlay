@@ -3,7 +3,6 @@ use std::error::Error;
 use closestmatch::ClosestMatch;
 use ocrs::{OcrEngine, OcrEngineParams};
 use once_cell::{self, sync::Lazy};
-use rten_imageio::read_image;
 use rten_tensor::NdTensorView;
 use screenshot::{CursorPos, ScreenshotData};
 
@@ -73,7 +72,6 @@ fn find_top_left_corner(screen: &ScreenshotData, mouse_location: &CursorPos) -> 
 
     //let border_color_inv = 0x54_51_49_ff_u32;
     let border_color_overlay_box = 0x60_5d_58_ff_u32;
-
 
     for x_offset in 0.. {
         if x_offset > mouse_location.x {
