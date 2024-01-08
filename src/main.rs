@@ -268,11 +268,31 @@ fn analyze_pressed() -> Result<(), AnalyzeError> {
     Ok(())
 }
 
-fn color_currency(value: i64, cur_type: &str) -> ColoredString {
-    let value_str = format!("{value}{cur_type}");
+fn ruble_value(value: i64, cur_type: &str) -> i64 {
     match cur_type {
-        "₽" => value_str.bright_blue(),
-        "$" => value_str.bright_cyan(),
-        _ => value_str.magenta(),
+        "₽" => value,
+        "$" => value * 114,
+        "€" => value * 126,
+        _ => unreachable!(),
+    }
+}
+
+fn color_currency(value: i64, cur_type: &str) -> ColoredString {
+    use num_format::{Locale, ToFormattedString};
+    let value_str = format!("{}", value.to_formatted_string(&Locale::en));
+    let rb_price = ruble_value(value, cur_type);
+
+    match rb_price {
+        x if x < 2500 => value_str.white(),
+        x if x < 5000 => value_str.blue(),
+        x if x < 7500 => value_str.yellow(),
+        x if x < 10000 => value_str.cyan(),
+        x if x < 15000 => value_str.magenta(),
+        x if x < 25000 => value_str.green(),
+        x if x < 50000 => value_str.bright_red(),
+        x if x < 75000 => value_str.blue().on_red(),
+        x if x < 100000 => value_str.green().on_red(),
+        x if x < 200000 => value_str.yellow().on_red(),
+        _ => value_str.red().bold().underline(),
     }
 }
