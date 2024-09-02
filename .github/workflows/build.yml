@@ -27,8 +27,8 @@ jobs:
 
     - name: Create Static assets
       run: |
-        curl "https://2143.me/f/sBTl.rten" -o text-detection.rten
-        curl "http://2143.me/f/JmpB.rten" -o text-recognition.rten
+        curl "http://2143.moe/f/uLxc.rten" -o text-detection.rten
+        curl "http://2143.moe/f/8F58.rten" -o text-recognition.rten
         echo ${{ secrets.tarkov_key }} >> market_api_key.txt
 
     - run: cargo build --release
