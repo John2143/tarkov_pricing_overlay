@@ -1,9 +1,10 @@
+# 2024-09-02T23:12:50.662Z
 Secure Flash drive
 SSD drive
 Trijicon REAP-IR thermal scope
 T-7 Thermal Goggles with a Night Vision mount
 Canister with purified water
-GPNVG-18 Night Vision goggles
+L3Harris GPNVG-18 night vision goggles
 T H I C C Weapon case
 Lucky Scav Junk box
 TerraGroup Labs keycard (Blue)
@@ -137,7 +138,7 @@ Toothpaste
 Construction measuring tape
 Duct tape
 Power cord
-RAM
+RAM stick
 PC CPU
 CPU fan
 Broken GPhone smartphone
@@ -322,7 +323,7 @@ Health Resort management warehouse safe key
 Bundle of wires
 Store safe key
 Bottle of saline solution
-OFZ 30x160mm shell
+OFZ 30x165mm shell
 Gas station safe key
 Cottage back door key
 Dorm room 308 key
@@ -364,7 +365,7 @@ Rotor 43 7.62x54R muzzle brake-compensator
 AK-74 TGP-A 5.45x39 sound suppressor
 Rotor 43 5.56x45 muzzle brake-compensator
 KAC QDSS NT-4 5.56x45 sound suppressor (Black)
-PP-91-01 "Kedr-B" 9x18PM sound suppressor
+PP-91-01 Kedr-B 9x18PM sound suppressor
 Alpha Dog Alpha 9 9x19 sound suppressor
 AK-74 Hexagon 5.45x39 sound suppressor
 HK MP7 B&T Rotex 2 4.6x30 sound suppressor
@@ -383,13 +384,13 @@ Leupold Mark 4 LR 6.5-20x50 30mm riflescope
 PU 3.5x riflescope
 Burris FullField TAC30 1-4x24 30mm riflescope
 BelOMO PSO-1M2 4x24 scope
-NPZ USP-1 "Tyulpan" 4x scope
+NPZ USP-1 Tyulpan 4x scope
 KMZ 1P59 3-10x riflescope
 NcSTAR ADO P4 Sniper 3-9x42 riflescope
-VOMZ Pilad 4x32 24.5mm riflescope
-AN/PVS-14 Night Vision Monocular
-Armasight N-15 Night Vision Goggles
-PNV-10T Night Vision Goggles
+VOMZ Pilad 4x32 25.4mm riflescope
+AN/PVS-14 night vision monocular
+Armasight N-15 night vision goggles
+PNV-10T night vision goggles
 Armasight Vulcan MG 3.5x Bravo night vision scope
 Trijicon ACOG TA01NSN 4x32 scope (Tan)
 FN P90 Ring Sight reflex sight
@@ -446,7 +447,7 @@ Poyas-A + Poyas-B gear rig
 Scav Vest
 Peltor Tactical Sport headset
 GSSh-01 active headset
-Peltor ComTac 2 headset (OD Green)
+Peltor ComTac II headset (OD Green)
 MSA Sordin Supreme PRO-X/L headset
 Ops-Core FAST RAC Headset
 ZSh-1-2M helmet (Black cover)
@@ -488,8 +489,8 @@ Axion Kobra EKP-8-02 reflex sight (Dovetail)
 6B5-16 Zh-86 Uley armored rig (Khaki)
 Maska-1SCh bulletproof helmet (Killa Edition)
 Ars Arma A18 Skanda plate carrier (MultiCam)
-PP-19-01 "Vityaz" 9x19 sound suppressor
-UMTBS 6sh112 Scout-Sniper (Digital Flora)
+PP-19-01 Vityaz 9x19 sound suppressor
+UMTBS 6Sh112 Scout-Sniper chest rig (Digital Flora)
 Shattered lightweight armored mask
 HighCom Striker ACHHC IIIA helmet (Black)
 Lower half-mask
@@ -517,7 +518,7 @@ BNTI Gzhel-K body armor
 BNTI LShZ-2DTM helmet (Black)
 Kolpak-1S riot helmet
 ZSh-1-2M helmet (Olive Drab)
-DevTac Ronin ballistic helmet
+DevTac Ronin Respirator
 IOTV Gen4 body armor (High Mobility Kit, MultiCam)
 Oakley Mechanism heavy duty backpack (Black)
 FLIR RS-32 2.25-9x 35mm 60Hz thermal riflescope
@@ -606,15 +607,15 @@ Lone Star TX-15 DML 5.56x45 carbine
 TOZ Simonov SKS 7.62x39 carbine
 Molot Arms Simonov OP-SKS 7.62x39 carbine
 Molot Arms VPO-209 .366 TKM carbine
-Molot Arms VPO-101 "Vepr-Hunter" 7.62x51 carbine
-Molot Arms VPO-136 "Vepr-KM" 7.62x39 carbine
+Molot Arms VPO-101 Vepr-Hunter 7.62x51 carbine
+Molot Arms VPO-136 Vepr-KM 7.62x39 carbine
 Lobaev Arms DVL-10 7.62x51 bolt-action sniper rifle
 Mosin 7.62x54R bolt-action rifle (Infantry)
 Mosin 7.62x54R bolt-action rifle (Sniper)
 ORSIS T-5000M 7.62x51 bolt-action sniper rifle
 Remington Model 700 7.62x51 bolt-action sniper rifle
 SV-98 7.62x54R bolt-action sniper rifle
-Molot Arms VPO-215 "Gornostay" .366 TKM bolt-action rifle
+Molot Arms VPO-215 Gornostay .366 TKM bolt-action rifle
 RPK-16 5.45x39 light machine gun
 Knight's Armament Company SR-25 7.62x51 marksman rifle
 Remington R11 RSASS 7.62x51 marksman rifle
@@ -645,13 +646,13 @@ Makarov PM (t) 9x18PM pistol
 APB 9x18PM silenced machine pistol
 Stechkin APS 9x18PM machine pistol
 TT-33 7.62x25 TT pistol (Golden)
-Yarygin MP-443 "Grach" 9x19 pistol
+Yarygin MP-443 Grach 9x19 pistol
 TT-33 7.62x25 TT pistol
 FN Five-seveN MK2 5.7x28 pistol (FDE)
 MP-133 12ga pump-action shotgun
 MP-153 12ga semi-automatic shotgun
 Remington Model 870 12ga pump-action shotgun
-Saiga 12ga ver.10 12/76 semi-automatic shotgun
+Saiga-12K ver.10 12ga semi-automatic shotgun
 TOZ-106 20ga bolt-action shotgun
 B&T MP9 9x19 submachine gun
 FN P90 5.7x28 submachine gun
@@ -659,22 +660,22 @@ HK MP5 9x19 submachine gun (Navy 3 Round Burst)
 HK MP5K 9x19 submachine gun
 HK MP7A1 4.6x30 submachine gun
 HK MP7A2 4.6x30 submachine gun
-PP-9 "Klin" 9x18PMM submachine gun
-PP-91 "Kedr" 9x18PM submachine gun
-PP-91-01 "Kedr-B" 9x18PM submachine gun
+PP-9 Klin 9x18PMM submachine gun
+PP-91 Kedr 9x18PM submachine gun
+PP-91-01 Kedr-B 9x18PM submachine gun
 Saiga-9 9x19 carbine
 SIG MPX 9x19 submachine gun
-PP-19-01 "Vityaz" 9x19 submachine gun
+PP-19-01 Vityaz 9x19 submachine gun
 B&T MP9-N 9x19 submachine gun
 F-1 hand grenade
 M67 hand grenade
 RDG-2B smoke grenade
 RGD-5 hand grenade
-"Zarya" stun grenade
+Zarya stun grenade
 5.56x45mm M995
 9x39mm BP gs
 4.6x30mm AP SX
-5.45x39mm PPBS gs "Igolnik"
+5.45x39mm PPBS gs Igolnik
 5.45x39mm BS gs
 7.62x39mm BP gzh
 7.62x51mm M61
@@ -768,14 +769,14 @@ RGD-5 hand grenade
 12/70 8.5mm Magnum buckshot
 5.45x39mm T gs
 .366 TKM FMJ
-12/70 "Poleva-6u" slug
+12/70 Poleva-6u slug
 9x18mm PM PS gs PPO
 12/70 Dual Sabot slug
 12/70 Grizzly 40 slug
-20/70 "Poleva-6u" slug
-20/70 "Poleva-3" slug
+20/70 Poleva-6u slug
+20/70 Poleva-3 slug
 5.45x39mm PRS gs
-12/70 "Poleva-3" slug
+12/70 Poleva-3 slug
 12/70 6.5mm Express buckshot
 20/70 7.3mm buckshot
 12/70 5.25mm buckshot
@@ -788,7 +789,7 @@ RGD-5 hand grenade
 AK 7.62x39 X Products X-47 50-round drum magazine
 Mosin Rifle 7.62x54R ProMag Archangel OPFOR 10-round magazine
 5.56x45 Magpul PMAG D-60 STANAG 60-round magazine
-9x39 SR3M.130 30-round magazine
+VSS/VAL 9x39 SR3M.130 30-round magazine
 5.56x45 SureFire MAG5-100 STANAG 100-round magazine
 HK MP5 9x19 X Products X-5 50-round drum magazine
 5.56x45 SureFire MAG5-60 STANAG 60-round magazine
@@ -808,7 +809,7 @@ AR-10 7.62x51 KAC 10-round steel magazine
 M700 7.62x51 ProMag AA-70 10-round magazine
 AK 7.62x39 ProMag AK-A-16 73-round drum magazine
 MP9 9x19 15-round magazine
-VPO-101 "Vepr-Hunter" 7.62x51 10-round magazine
+VPO-101 Vepr-Hunter 7.62x51 10-round magazine
 DVL-10 7.62x51 10-round magazine
 RPK-16 5.45x39 95-round drum magazine
 MP9 9x19 20-round magazine
@@ -827,7 +828,7 @@ ASh-12 12.7x55 10-round magazine
 AR-10 7.62x51 Magpul PMAG 20 SR-LR GEN M3 20-round magazine
 M700 7.62x51 MDT AICS 12-round magazine
 SLR-106/AK 5.56x45 Circle 10 30-round magazine
-VSS 9x39 6L25 20-round magazine
+VSS/VAL 9x39 6L25 20-round magazine (Plum)
 MP9 9x19 30-round magazine
 HK MP7 4.6x30 30-round magazine
 Glock 9x19 17-round magazine
@@ -843,16 +844,16 @@ M700 7.62x51 AI AICS 10-round magazine
 SA-58/FAL 7.62x51 30-round magazine
 5.56x45 TROY BattleMag STANAG 30-round magazine
 MP-153 12ga 8-shell magazine
-SA-58/FAL 7.62x51 30-round magazine
+SA-58/FAL/SLR 7.62x51 30-round magazine
 P226 9x19 15-round magazine
-VSS 9x39 6L24 10-round magazine
+VSS/VAL 9x39 6L24 10-round magazine
 ORSIS T-5000M 7.62x51 5-round magazine
 5.56x45 Magpul PMAG 30 GEN M3 STANAG 30-round magazine
 HK MP5 9x19 30-round magazine
 Glock 9x19 Magpul PMAG GL9 21-round magazine
 MP9 9x19 25-round magazine
 M9A3 9x19 17-round magazine
-PP-19-01 "Vityaz" 9x19 PUFGUN SG-919 30 30-round magazine
+PP-19-01 Vityaz 9x19 PUFGUN SG-919 30 30-round magazine
 AR-10 7.62x51 KAC 20-round steel magazine
 Mosin Rifle 7.62x54R 5-round magazine
 AK 7.62x39 US Palm "AK30" 30-round magazine (Black)
@@ -868,16 +869,16 @@ M700 7.62x51 Wyatt's Outdoor 10-round magazine
 AK 7.62x39 Magpul PMAG 30 GEN M3 30-round magazine
 M1A 7.62x51 20-round magazine
 SA-58/FAL 7.62x51 MMW polymer 20-round magazine
-MP-443 "Grach" 9x19 18-round magazine
+MP-443 Grach 9x19 18-round magazine
 5.56x45 HK PM Gen.2 STANAG 30-round magazine
 SR-1MP 9x21 18-round magazine
 TOZ-106 20ga MTs 20-01 Sb.3 5-shot magazine
-VPO-101 "Vepr-Hunter" 7.62x51 5-round magazine
+VPO-101 Vepr-Hunter 7.62x51 5-round magazine
 SA-58/FAL 7.62x51 10-round magazine
 AK-74 5.45x39 Magpul PMAG 30 GEN M3 30-round magazine
 AK-12 5.45x39 30-round magazine
 MPX 9x19 30-round magazine
-PP-19-01 "Vityaz" 9x19 30-round magazine
+PP-19-01 Vityaz 9x19 30-round magazine
 M870 12ga 7-shell magazine
 AK-74 5.45x39 6L26 45-round magazine
 SOK-12 12/76 SAI-02 10-round magazine
@@ -891,7 +892,7 @@ AK 7.62x39 6L10 30-round magazine
 TT 7.62x25 tt-105 8-round magazine
 AK-101 5.56x45 6L29 30-round magazine
 PM 9x18PM 90-93 8-round magazine
-PP-19-01 "Vityaz" 9x19 PUFGUN SG-919 20 20-round magazine
+PP-19-01 Vityaz 9x19 PUFGUN SG-919 20 20-round magazine
 APS 9x18PM 20-round magazine
 SA-58/FAL 7.62x51 20-round magazine
 AK-74 5.45x39 6L20 30-round magazine
@@ -910,16 +911,16 @@ AKMS 7.62x39 aluminium 30-round magazine
 Saiga-9 9x19 sb.7 10-round magazine
 TOZ-106 20ga MTs 20-01 Sb.3 2-shot magazine
 AK 7.62x39 aluminium 10-round magazine
-LA-5B/PEQ tactical device
+L3Harris LA-5B/PEQ tactical device
 Zenit Perst-3 tactical device
-AN/PEQ-15 tactical device
+L3Harris AN/PEQ-15 tactical device
 Steiner DBAL-PL tactical device
 Steiner LAS/TAC 2 tactical flashlight
 Zenit Klesch-2U tactical flashlight
 Zenit Klesch-2IKS IR illuminator with laser
 SureFire XC1 tactical flashlight
 Glock GTL 21 tactical flashlight with laser
-AN/PEQ-2 tactical device
+Insight AN/PEQ-2 tactical device
 Holosun LS321 Tactical device
 TT DLP Tactical Precision LAM-module
 Zenit Klesch-2P flashlight with laser
@@ -999,7 +1000,7 @@ P226 Hogue Rubberized pistol grip
 SVDS pistol grip
 AK Strike Industries Enhanced Pistol Grip (Black)
 AK Strike Industries Enhanced Pistol Grip (FDE)
-PP-91 "Kedr" polymer pistol grip
+PP-91 Kedr polymer pistol grip
 AR-15 HK Battle Grip pistol grip
 AR-15 Colt A2 pistol grip
 MDR pistol grip (FDE)
@@ -1015,7 +1016,7 @@ Glock Pachmayr Tactical Grip Glove
 AR-15 Damage Industries ECS pistol grip (FDE)
 P226 Stainless Elite Wooden pistol grip
 AKM wooden pistol grip
-AS VAL pistol grip
+AS VAL pistol grip (Plum)
 TT side grips
 P226 polymer pistol grip (Black)
 P226 Emperor Scorpion pistol grip
@@ -1023,10 +1024,10 @@ MPX pistol grip
 APS bakelite side-pieces
 TT Hogue-like rubber grip
 SA-58 pistol grip
-PP-19-01 "Vityaz" pistol grip
+PP-19-01 Vityaz pistol grip
 AKM bakelite pistol grip
 AK bakelite pistol grip (6P1 Sb.8V)
-MP-443 "Grach" polymer pistol grip
+MP-443 Grach polymer pistol grip
 AK polymer pistol grip (6P1 Sb.8)
 TOZ-106 002 pistol grip
 AK bakelite pistol grip
@@ -1034,7 +1035,7 @@ AK bakelite pistol grip (6P4 Sb.9)
 M9A3 polymer side grips
 Oakley SI M Frame safety glasses
 Round frame sunglasses
-Crossbow tactical glasses
+ESS Crossbow tactical glasses
 Anti-fragmentation glasses
 Pyramex Proximity safety glasses
 RayBench Aviator glasses
@@ -1044,8 +1045,8 @@ RayBench Hipster Reserve sunglasses
 Dundukk sport sunglasses
 Tactical glasses
 Norotos Titanium Advanced Tactical Mount
-AN/PVS-14 Dual Dovetail Mount
-Wilcox Interface for PVS-7
+AN/PVS-14 Norotos Dual Dovetail Mount
+PVS-7 Wilcox Adapter
 PNV-10T dovetail adapter
 Ops-Core SLAAP armor helmet plate (Tan)
 LShZ-2DTM aventail
@@ -1068,7 +1069,7 @@ AK FAB Defense PDC dust cover
 MP9-N 9x19 upper receiver
 P226 Axelson Tactical MK25 pistol slide
 HK 416A5 5.56x45 upper receiver
-VPO-101 "Vepr-Hunter" dust cover
+VPO-101 Vepr-Hunter dust cover
 TX-15 5.56x45 Lightweight upper receiver
 AK Zenit B-33 dust cover
 SA-58 Extreme Duty dust cover
@@ -1094,7 +1095,7 @@ SVDS custom cut dust cover
 SR-25 7.62x51 upper receiver
 P226R MK25 pistol slide
 Glock 17 pistol slide
-PP-19-01 "Vityaz-SN" dust cover
+PP-19-01 Vityaz-SN dust cover
 FN PS90 5.7x28 upper receiver
 VSS dust cover
 AS VAL dust cover
@@ -1105,7 +1106,7 @@ AK-74 dust cover (6P20 0-1)
 AKS-74U dust cover (6P26 Sb.7)
 AKM dust cover (6P1 0-1)
 SOK-12 dust cover (Sb.0-2)
-PP-19-01 "Vityaz" dust cover
+PP-19-01 Vityaz dust cover
 Glock 18C pistol slide
 FN Five-seveN MK2 pistol slide
 MPX double latch charging handle
@@ -1134,13 +1135,13 @@ AR-10 KAC Low Profile Gas Block
 AK Kiba Arms VDM CS gas tube
 AR-15 Windham Weaponry Rail Gas Block
 AR-15 Daniel Defense MK12 Low Profile Gas Block
-PP-19-01 "Vityaz" gas tube
+PP-19-01 Vityaz gas tube
 AKS-74U gas tube (6P26 Sb.1-2)
 HK 416A5 low profile gas block
 AKM gas tube (6P1 Sb.1-2)
 AK-74 gas tube (6P20 Sb.1-2)
 M4A1 front sight with gas block
-VPO-101 "Vepr-Hunter" gas tube
+VPO-101 Vepr-Hunter gas tube
 AK UltiMAK M1-B gas tube & handguard
 AR-10 KAC QDC 7.62x51 Flash Suppressor Kit
 AR-15 SAI JailBrake 5.56x45 muzzle device
@@ -1153,7 +1154,7 @@ M14 JP Enterprises 7.62x51 Tactical Compensator
 Mosin Rifle Witt Machine 7.62x54R muzzle brake
 AR-10 Lantac Dragon 7.62x51 muzzle brake-compensator
 AR-15 Bulletec ST-6012 5.56x45 muzzle brake
-PP-19-01 "Vityaz" 9x19 muzzle brake-compensator
+PP-19-01 Vityaz 9x19 muzzle brake-compensator
 AR-10 Daniel Defense WAVE 7.62x51 muzzle brake
 Lantac BMD 7.62x51 Blast Mitigation Device
 AK Venom Tactical Antidote 7.62x39 muzzle brake-compensator
@@ -1175,7 +1176,7 @@ Yankee Hill Annihilator multi-caliber flash hider
 Mosin Rifle Texas Precision Products 7.62x54R muzzle brake
 AR-10 2A Armanent X3 7.62x51 compensator
 AR-15 Daniel Defense WAVE 5.56x45 muzzle brake
-TACCOM Carbine Brake multi-caliber muzzle brake
+TACCOM Carbine Brake 9x19 muzzle brake
 AR-15 SureFire SF3P 5.56x45 Flash hider
 AR-15 KAC QDC 5.56x45 Flash Suppressor Kit
 SA-58 3-Prong Trident 7.62x51 flash hider
@@ -1210,7 +1211,7 @@ HK MP7A1 4.6x30 flash hider
 AK Spikes Tactical Dynacomp 7.62x39 muzzle brake-compensator
 Glock 9x19 Lone Wolf AlphaWolf Bullnose compensator
 AR-15 Noveske KX3 5.56x45 flash hider
-VPO-136 "Vepr-KM" 7.62x39 muzzle brake-compensator
+VPO-136 Vepr-KM 7.62x39 muzzle brake-compensator
 Glock 9x19 Lone Wolf LWD-COMP9 compensator
 FN P90 5.7x28 flash hider
 SA-58 Austrian Style 7.62x51 muzzle brake
@@ -1244,7 +1245,7 @@ NSPU-M scope eyecup
 Glock ZEV Tech sight mount cap
 Axion Kobra sight shade
 Lantac BMD Blast Mitigation Device A3 direct thread adapter
-PP-91-01 "Kedr-B" threaded suppressor adapter
+PP-91-01 Kedr-B threaded suppressor adapter
 Glock 9x19 Lone Wolf AlphaWolf thread protector
 MP9 9x19 sound suppressor mount
 Gemtech ONE Direct Thread Mount adapter
@@ -1261,7 +1262,7 @@ Mosin Rifle Weapon Tuning 7.62x39 thread adapter
 SKS Weapon Tuning 7.62x39 thread adapter
 SilencerCo Salvo 12 thread adapter
 Mosin Rifle Kiba Arms 7.62x54R custom thread adapter
-VPO-215 "Gornostay" thread protection cap
+VPO-215 Gornostay thread protector
 Glock SAI 9x19 thread protector
 P226 thread protection cap
 SOK-12 thread protection tube
@@ -1329,7 +1330,7 @@ M45A1 hammer
 M45A1 trigger
 AR-15 Rainier Arms Avalanche MOD2 charging handle
 MP-153 12ga 4-shell magazine cap
-AK-74 5.45x39 6L23 "Plum" 30-round magazine
+AK-74 5.45x39 6L23 30-round magazine (Plum)
 KS-23M 23x75 3-shell magazine cap
 AK 7.62x39 US Palm "AK30" 30-round magazine (FDE)
 5.56x45 Magpul PMAG 30 GEN M3 STANAG 30-round magazine (FDE)
@@ -1350,7 +1351,7 @@ KS-23 wooden stock
 Mossberg 590A1 polymer stock
 Mesa Tactical Crosshair Hydraulic buffer tube
 Mossberg 590A1 Mesa Tactical LEO gen.1 stock adapter
-VPO-101 "Vepr-Hunter" SVD-style stock
+VPO-101 Vepr-Hunter SVD-style stock
 KS-23 23x75 510mm barrel
 KS-23 23x75 700mm barrel
 RFB 7.62x51 18 inch barrel
@@ -1428,10 +1429,10 @@ HK UMP polymer stock
 KRISS Vector non-folding stock adapter
 KRISS Vector Pistol Sling adapter
 AR-15 KRISS Defiance DS150 stock (FDE)
-MPX/MCX lightweight stock
+MPX/MCX Thin Side-Folding Stock
 AR-15 KRISS Defiance DS150 stock (Black)
 KRISS Vector Gen.2 folding stock
-MPX/MCX telescoping stock
+MPX/MCX Telescoping/Folding Stock
 MCX .300 BLK 171mm barrel
 MCX .300 BLK 229mm barrel
 Mk-18 .338 LM 24 inch barrel
@@ -1462,15 +1463,15 @@ Smoke balaclava
 5.45x39mm SP ammo pack (30 pcs)
 5.45x39mm BP gs ammo pack (120 pcs)
 5.45x39mm BS gs ammo pack (120 pcs)
-5.45x39mm BP gs ammo pack (120 pcs)
-5.45x39mm BS gs ammo pack (120 pcs)
-5.45x39mm T gs ammo pack (120 pcs)
-5.45x39mm BT gs ammo pack (120 pcs)
-5.45x39mm PRS gs ammo pack (120 pcs)
+5.45x39mm BP gs ammo pack (120 pcs) damaged
+5.45x39mm BS gs ammo pack (120 pcs) damaged
+5.45x39mm T gs ammo pack (120 pcs) damaged
+5.45x39mm BT gs ammo pack (120 pcs) damaged
+5.45x39mm PRS gs ammo pack (120 pcs) damaged
 9x18mm PM PS gs PPO ammo pack (16 pcs)
-5.45x39mm PP gs ammo pack (120 pcs)
-5.45x39mm PS gs ammo pack (120 pcs)
-5.45x39mm US gs ammo pack (120 pcs)
+5.45x39mm PP gs ammo pack (120 pcs) damaged
+5.45x39mm PS gs ammo pack (120 pcs) damaged
+5.45x39mm US gs ammo pack (120 pcs) damaged
 Armband (Rivals 2020)
 Rivals 2020 cap
 Rivals 2020 beanie
@@ -1487,10 +1488,10 @@ PL-15 9x19 sound suppressor
 Eberlestock G2 Gunslinger II backpack (Dry Earth)
 Hazard 4 Takedown sling backpack (MultiCam)
 Hazard 4 Takedown sling backpack (Black)
-Azimut SS "Zhuk" chest harness (Black)
+Azimut SS Zhuk chest harness (Black)
 CSA chest rig (Black)
 Umka M33-SET1 hunter vest (Olive Drab)
-Azimut SS "Zhuk" chest harness (SURPAT)
+Azimut SS Zhuk chest harness (SURPAT)
 Lebedev PL-15 9x19 pistol
 Soyuz-TM STM-9 Gen.2 9x19 carbine
 LBT-6094A Slick Plate Carrier (Olive Drab)
@@ -1520,7 +1521,7 @@ M870 FAB Defense PR-870 forestock
 AK-74 polymer handguard (6P20 Sb.9)
 AKM wooden handguard (6P1 Sb.6-1)
 VPO-209 wooden handguard
-VPO-136 "Vepr-KM" wooden handguard
+VPO-136 Vepr-KM wooden handguard
 AK-74 wooden handguard (6P20 Sb.6)
 AKS-74U wooden handguard (6P26 Sb.6)
 HK MP5 Wide Tropical polymer handguard
@@ -1609,7 +1610,7 @@ MP-133 12ga 660mm barrel with rib
 MP-133 12ga 610mm barrel
 MP-153 12ga 750mm barrel
 M870 12ga 508mm barrel with a fixed sight
-VPO-215 "Gornostay" .366TKM 23 inch barrel
+VPO-215 Gornostay .366TKM 600mm barrel
 MPX 9x19 203mm barrel
 TT 7.62x25 116mm barrel
 Glock 18C 9x19 barrel with a compensator
@@ -1860,7 +1861,7 @@ MP-133/153 Taktika Tula 12003 stock adapter
 KAC URX 3 3 inch rail
 Vltor CASV KeyMod 2 inch rail
 Magpul M-LOK 4.1 inch rail
-PP-91 "Kedr" Rotor 43 RIS mount
+PP-91 Kedr Rotor 43 RIS mount
 AK Zenit B-12 Mount
 Delta-Tek Sprut mount for pump-action shotguns
 FN Five-seveN MK2 RMR mount
@@ -1886,11 +1887,11 @@ Strike Industries KeyMod 4 inch rail
 FN P90 upper receiver top rail
 MP9 bottom rail
 Kiba Arms Short Mount sight adapter
-VPO-215 "Gornostay" scope rail mount
+VPO-215 Gornostay scope rail mount
 PU 3.5x ring scope mount
 Strike Industries TRAX bridge rail
 KMZ 1P69 Weaver mount
-MP-443 "Grach" Zenit B-8 mount
+MP-443 Grach Zenit B-8 mount
 MP9 side rail
 M870 Leapers UTG PRO MTU-028SG rail
 Mosin Rifle sawed-off sniper stock
@@ -1924,7 +1925,7 @@ AK Zenit PT-3 "Klassika" stock
 SVDS polymer stock
 AR-15 Magpul PRS GEN3 stock (Black)
 AK Zenit PT-1 "Klassika" stock
-MPX/MCX retractable stock adapter
+MPX/MCX Folding Knuckle Stock Adapter
 Glock FAB Defense GLR-17 stock
 AKM/AK-74 ME4 buffer tube adapter
 M1A SOCOM 16 stock
@@ -1946,7 +1947,7 @@ SA-58 BRS stock
 AKS-74/AKS-74U Zenit PT Lock
 AR-15 DoubleStar ACE SOCOM Gen.4 stock
 AKMSN shoulder piece (6P4N Sb.1-19)
-Mosin Rifle ATI Monte Carlo chassis
+Mosin Rifle ATI Monte Carlo stock
 AKM/AK-74 Zenit PT Lock
 M700 AB Arms MOD*X buffer tube side folder adapter
 AR-15 Magpul PRS GEN2 stock (FDE)
@@ -1967,17 +1968,17 @@ FN P90 buttpad
 AR-15 FAB Defense GLR-16-S stock
 AR-15 Magpul MOE Carbine stock (Black)
 AKMS shoulder piece (6P4 Sb.1-19)
-MPX/MCX Maxim Defense CQB telescoping stock
+MPX/MCX Maxim Defense CQB stock
 AR-15 TROY M7A1 PDW stock (Black)
 AK-74M/AK-100 Zenit PT Lock
 MPX/MCX PMM ULSS foldable stock
-MPX/MCX collapsing/telescoping stock
+MPX/MCX Collapsing/Telescoping Stock
 AR-15 LMT SOPMOD stock
-VPO-101 "Vepr-Hunter" stock
+VPO-101 Vepr-Hunter stock
 HK Enhanced Tube buffer tube
 OP-SKS wooden stock
 AR-15 HK Slim Line buttstock
-PP-19-01 "Vityaz" metal skeleton stock
+PP-19-01 Vityaz metal skeleton stock
 TOZ-106 custom cut Mosin stock
 RPK-16 buffer tube
 FN PS90 stock
@@ -1994,8 +1995,8 @@ MP-133/153 wooden stock
 VPO-209 wooden stock
 AK-74 polymer stock (6P20 Sb.7)
 Mosin Rifle standard stock
-AR-15 Armacon Baskak stock
-VPO-136 "Vepr-KM" wooden stock
+Armacon Baskak stock
+VPO-136 Vepr-KM wooden stock
 SKS TOZ wooden stock (56-A-231 Sb.5)
 VSS wooden stock
 AS VAL skeleton stock
@@ -2039,12 +2040,12 @@ AK-74 Hexagon Wafflemaker 5.45x39 sound suppressor
 HK G28 B&T QD 7.62x51 sound suppressor
 HK UMP B&T OEM .45 ACP sound suppressor
 Leapers UTG reflex sight
-NPZ PK1 "Obzor" dovetail reflex sight
+NPZ PK1 Obzor dovetail reflex sight
 Aimpoint PRO reflex sight
 BelOMO PK-AA dovetail reflex sight
 Aimpoint ACRO P-1 reflex sight
 Aimpoint Micro H-2 reflex sight
-Schmidt & Bender PM II 3-12x50 34mm riflescope
+Schmidt & Bender PM II 3-20x50 34mm riflescope
 Schmidt & Bender PM II 1-8x24 30mm riflescope
 NPZ 1P78-1 2.8x scope
 Vortex Razor HD Gen.2 1-6x24 30mm riflescope
@@ -2054,8 +2055,8 @@ Model 7290 Flash Bang grenade
 RGN hand grenade
 RGO hand grenade
 M18 smoke grenade (Green)
-USEC first safe key
-USEC second safe key
+USEC cottage first safe key
+USEC cottage second safe key
 Rogue USEC stash key
 Rogue USEC workshop key
 Police truck cabin key
@@ -2212,13 +2213,13 @@ NFM HJELM helmet (Hellhound Grey)
 Leather cap
 Gas welder safety goggles
 Secure magnetic tape cassette
-Bottle of Tarkovskaya vodka
+Bottle of Tarkovskaya vodka (bad)
 AR-15 ADAR 2-15 buffer tube
 AK-74M polymer stock (6P34 Sb.15)
 FAB Defense buffer tube for AGR-870
 SKS TAPCO Intrafuse buffer tube
 Mosin Rifle sawed-off stock
-VPO-215 "Gornostay" stock
+VPO-215 Gornostay wooden stock
 AKS-74U metal skeleton stock (6P26 Sb.5)
 MTs 20-01 stock
 SOK-12 AK-style stock
@@ -2253,7 +2254,7 @@ HK MP7 flip-up rear sight
 HK 416A5 flip-up rear sight
 AK Taktika Tula TT01 rear sight rail
 KAC Folding front sight
-VPO-101 "Vepr-Hunter" rear sight
+VPO-101 Vepr-Hunter rear sight
 Glock ZEV Tech rear sight
 VSS rear sight
 ASh-12 folding front sight
@@ -2297,7 +2298,7 @@ APB rear sight
 APS rear sight
 Glock ZEV Tech front sight
 Glock rear sight
-PP-19-01 "Vityaz" rear sight
+PP-19-01 Vityaz rear sight
 USEC stash key
 Kolpak-1S face shield
 Ops-Core FAST Visor
@@ -2317,7 +2318,7 @@ Christmas tree ornament (Silver)
 Christmas tree ornament (Violet)
 5.56x45 Magpul PMAG 40 GEN M3 STANAG 40-round magazine (FDE)
 5.56x45 Magpul PMAG 30 GEN M3 W STANAG 30-round magazine (FDE)
-VPO-215 "Gornostay" .366 TKM 4-round magazine
+VPO-215 Gornostay .366 TKM 4-round magazine
 AR-15 Strike Industries Advanced Receiver Extension buffer tube (Anodized Red)
 Magpul MBUS Gen2 flip-up front sight (FDE)
 Magpul MBUS Gen2 flip-up rear sight (FDE)
@@ -2360,7 +2361,7 @@ Weapon safe key
 9x18mm PM SP7 gzh ammo pack (16 pcs)
 9x18mm PM SP8 gzh ammo pack (16 pcs)
 5.56x45mm Warmageddon ammo pack (20 pcs)
-5.45x39mm PPBS gs "Igolnik" ammo pack (30 pcs)
+5.45x39mm PPBS gs Igolnik ammo pack (30 pcs)
 5.45x39mm PP gs ammo pack (30 pcs)
 5.45x39mm PRS gs ammo pack (30 pcs)
 5.45x39mm PS gs ammo pack (30 pcs)
@@ -2452,12 +2453,12 @@ SilencerCo Salvo 12 choke adapter
 SVD CAA XD RGL receiver mount
 AR-15 Geissele ACH charging handle (DDC)
 AR-15 Radian Weapons Raptor charging handle (Grey)
-AK-74 "Plum" polymer handguard (6P20 Sb.9)
+AK-74 6P20 Sb.9 polymer handguard (Plum)
 AR-15 Strike Industries Viper carbine length M-LOK handguard (FDE)
 AK KGB MG-47 pistol grip (Anodized Red)
 AKM/AK-74 Hexagon "Kocherga" stock (Anodized Red)
 AR-15 Magpul PRS GEN3 stock (Grey)
-AK-74 "Plum" polymer stock (6P20 Sb.7)
+AK-74 6P20 Sb.7 polymer stock (Plum)
 AR-15 Magpul CTR Carbine stock (FDE)
 Hexagon short length rail (Anodized Red)
 SVD modernization kit top rail
@@ -2469,7 +2470,7 @@ MP9 9x19 upper receiver
 KAC URX 3/3.1 long panel (FDE)
 FN40GL Mk2 40mm grenade launcher
 M.U.L.E. stimulant injector
-"Obdolbos" cocktail injector
+Obdolbos cocktail injector
 P22 (Product 22) stimulant injector
 L1 (Norepinephrine) injector
 3-(b-TG) stimulant injector
@@ -2506,8 +2507,8 @@ Colt M45A1 .45 ACP pistol
 Mossberg 590A1 12ga pump-action shotgun
 TOZ KS-23M 23x75mm pump-action shotgun
 EYE MK.2 professional hand-held compass
-Bottle of "Norvinskiy Yadreniy" premium kvass (0.6L)
-NPP KlASS Korund-VM body armor
+Bottle of Norvinsky Yadreniy premium kvass (0.6L)
+NPP KlASS Korund-VM body armor (Black)
 Rys-T bulletproof helmet (Black)
 Galvion Caiman Hybrid helmet (Grey)
 30x29mm VOG-30
@@ -2517,7 +2518,7 @@ Galvion Caiman Hybrid helmet (Grey)
 23x75mm Zvezda flashbang round
 Esmarch tourniquet
 CALOK-B hemostatic applicator
-VPO-101 "Vepr-Hunter" Rotor 43 7.62x51 muzzle brake-compensator
+VPO-101 Vepr-Hunter Rotor 43 7.62x51 muzzle brake-compensator
 Walker's XCEL 500BT Digital headset
 Galvion Caiman Hybrid Ballistic Applique
 Galvion Caiman Fixed Arm Visor
@@ -2583,7 +2584,7 @@ BakeEzy cook book
 Video cassette with the Cyborg Killer movie
 TOZ-106 FAB Defense GPCP cheek rest
 MP-18 7.62x54R single-shot rifle
-Benelli M3 Super 90 dual-mode 12ga shotgun
+Benelli M3 Super 90 12ga dual-mode shotgun
 MP-18 wooden stock
 MP-18 wooden handguard
 MP-18 7.62x54R 600mm barrel
@@ -2605,7 +2606,7 @@ Mystery Ranch NICE COMM 3 BVS frame system (Coyote)
 Gruppa 99 T30 backpack (MultiCam)
 LBT-1961A Load Bearing Chest Rig (Goons Edition)
 ECLiPSE RBAV-AF plate carrier (Ranger Green)
-NPP KlASS Bagariy armored rig (Digital Flora)
+NPP KlASS Bagariy plate carrier (Digital Flora)
 S&S Precision PlateFrame plate carrier (Goons Edition)
 Crye Precision CPC plate carrier (Goons Edition)
 Tasmanian Tiger SK plate carrier (MultiCam Black)
@@ -2617,7 +2618,7 @@ SAG AK-545 Short 5.45x39 carbine
 HK G36 5.56x45 assault rifle
 Rifle Dynamics RD-704 7.62x39 assault rifle
 JohnB Liquid DNB glasses
-Peltor ComTac 4 Hybrid headset (Coyote Brown)
+Peltor ComTac IV Hybrid headset (Coyote Brown)
 HK G36 hand stop
 HK G36 bipod
 AI AXMC padded handguard grip
@@ -2625,7 +2626,7 @@ AK-545 SAG Mk. 2.1 gas tube
 RD-704 SLR ION Lite + Railed Gas Tube handguard & gas tube combo
 HK G36 gas block
 AR-10 Dead Air Keymount 7.62x51 muzzle brake
-AI .338 LM Tactical Muzzle Brake
+AI .338 LM Tactical Muzzle Brake 
 AR-15 Yankee Hill Phantom 5.56x45 flash hider
 HK G36 5.56x45 4-prong flash hider
 HK G36C 5.56x45 4-prong flash hider
@@ -2682,7 +2683,7 @@ Magpul M-LOK Cantilever Mount
 Magpul M-LOK Offset Light Mount
 AI AXMC Adapter Kit medium length rail
 AI AXMC Adapter Kit short length rail
-AI AXMC AT X Top Rail
+AI AXMC AT X Top Rail 
 AK-545 SAG buffer tube
 CNC Guns OV-SV98 M12B stock
 HK G36 KV adjustable stock
@@ -2742,7 +2743,7 @@ DRD body armor
 20/70 "Flechetta Plus"
 20/70 Elephant killer slug
 20/70 "explosive" slug
-26x75mm distress signal flare (Poison Green)
+26x75mm flare cartridge (Acid Green)
 Advanced Electronic Materials textbook
 Microcontroller board
 Silicon Optoelectronic Integrated Circuits textbook
@@ -2790,7 +2791,7 @@ Precision Reflex handguard short side rail mount
 SR-2M top-folding stock
 SR-2MP top-folding stock
 Steyr AUG A3 charging handle
-GP-25 "Kostyor" 40mm underbarrel grenade launcher
+GP-25 Kostyor 40mm underbarrel grenade launcher
 M203 40mm underbarrel grenade launcher
 RSh-12 12.7x55 5-round cylinder
 Steyr AUG 5.56x45 42-round magazine
@@ -2800,7 +2801,7 @@ Steyr AUG A3 5.56x45 16 inch barrel
 Glock 19X 9x19 barrel
 AK CNC Guns OV GP handguard
 SR-2M polymer handguard (Black)
-SR-2M polymer handguard
+SR-2M polymer handguard (Plum)
 AR-15 Daniel Defense RIS II 12.25 lower handguard (Coyote Brown)
 AR-15 Precision Reflex GEN III Delta Carbon handguard
 AR-15 KAC URX 3.1 10.75 inch lower handguard
@@ -2808,7 +2809,7 @@ AR-15 Strike Industries Viper carbine length M-LOK lower handguard (FDE)
 AR-15 KAC URX 3 8 inch lower handguard
 AR-15 Strike Industries Viper carbine length M-LOK lower handguard
 RSh-12 pistol grip
-SR-2M pistol grip
+SR-2M pistol grip (Plum)
 SR-2M pistol grip (Black)
 SR-2M dust cover
 Steyr AUG A3 5.56x45 receiver
@@ -2829,7 +2830,7 @@ Azimut SS "Khamelion" chest harness (Olive)
 Shellback Tactical Banshee plate carrier (A-TACS AU)
 Tasmanian Tiger Trooper 35 backpack (Khaki)
 RSh-12 12.7x55 revolver
-SR-2M "Veresk" 9x21 submachine gun
+SR-2M Veresk 9x21 submachine gun
 Hexatac HPC Plate Carrier (MultiCam Black)
 Spooky skull mask
 Zryachiy's balaclava
@@ -2861,7 +2862,7 @@ Abandoned factory marked key
 Primorsky Ave apartment key
 Backup hideout key
 SOG Voodoo Hawk tactical tomahawk
-"Obdolbos 2" cocktail injector
+Obdolbos 2 cocktail injector
 PNB (Product 16) stimulant injector
 Perfotoran (Blue Blood) stimulant injector
 SJ12 TGLabs combat stimulant injector
@@ -2913,15 +2914,15 @@ PK rear sight
 PM pistol slide
 AR-15 Aeroknox AX-15 5.56x45 upper receiver
 AK-12 dust cover
-SVT dust cover
+SVT dust cover 
 PK pistol grip
 PM Tactic Kit pistol grip
 AR-15 Aeroknox Orion pistol grip
 PM FAB Defense PM-G pistol grip (Olive Drab)
 AK Mission First Tactical ENGAGE AK47 pistol grip
-PM bakelite side grips
+PM bakelite grip
 PM FAB Defense PM-G pistol grip
-AK-74 "Saiga 545" 5.45x39 20-round magazine
+AK-74 Delta-Tek Saiga 545 5.45x39 20-round magazine
 AK 7.62x39 Magpul PMAG 20 GEN M3 20-round magazine
 M1A 7.62x51 10-round magazine
 SVT-40 7.62x54R 10-round magazine
@@ -2935,7 +2936,7 @@ SVT-40 Tokarev PU mount
 SAG AK dovetail sidemount
 PKM wooden stock
 PKP polymer stock
-AVT-40 wooden stock
+AVT-40 wooden stock 
 AK-12 buffer tube
 PK Zenit PT-2 "Klassika" stock
 SVT-40 7.62x54R 625mm barrel
@@ -3013,7 +3014,6 @@ SKS gas tube cover
 Axion Kobra EKP-1S-03 reflex sight (Dovetail)
 SKS upper band
 SKS dust cover
-SKS 7.62x39 520mm barrel
 SKS gas tube
 Saiga-9 Hartman Gyurza handguard
 Hartman Lenok 70mm rail
@@ -3031,13 +3031,12 @@ KBP 9A-91 9x39 compact assault rifle
 KBP VSK-94 9x39 rifle
 Degtyarev RPDN 7.62x39 machine gun
 Degtyarev RPD 7.62x39 machine gun
-Kalashnikov PKTM 7.62x54R Modernized Tank Machine Gun
 Pack of Tarker dried meat
 Pack of instant noodles
 PR-Taran police baton
 6.8x51mm SIG FMJ
 6.8x51mm SIG Hybrid
-9x21mm 7N42 "Zubilo"
+9x21mm 7N42 Zubilo
 9x21mm 7U4
 Diamond Age NeoSteel High Cut helmet (Black)
 GBRS Aimpoint Hydra Mount Kit (Black)
@@ -3047,7 +3046,7 @@ SKS CHOATE scope mount
 Zenit KR-2 old gen mount
 RPD wooden stock
 9A-91 top-folding stock
-MCX/MPX folding stock adapter buffer tube (Coyote Tan)
+MPX/MCX Stock Adapter Low Profile Tube (Coyote Tan)
 AR-15 Daniel Defense Enhanced Collapsible Buttstock (Black)
 Tehinkom RK-PT-25 patrol backpack (Digital Flora)
 Direct Action Dragon Egg Mark II backpack (Black)
@@ -3055,17 +3054,17 @@ Mystery Ranch SATL Bridger Assault Pack (Foliage)
 Relaxation room key
 "Negotiation" room key
 Real estate agency office room key
-MVD academy entrance hall key
+MVD academy entrance hall guard room key
 TerraGroup science office key
 Unity Credit Bank cash register key
 Underground parking utility room key
-Daniel Defense TCS 20mm Buttpad
+Daniel Defense TCS 20mm Buttpad 
 VSK-94 stock
 SKS FAB Defense UAS buttstock
 AR-15 Daniel Defense Enhanced Collapsible Buttstock (FDE)
-MCX/MPX Stock Locking Hinge Assembly
-SKS ATI Monte Carlo chassis
-Daniel Defense TCS 12mm Buttpad
+MPX/MCX Stock Locking Hinge Assembly
+SKS ATI Monte Carlo stock
+Daniel Defense TCS 12mm Buttpad 
 AR-15 Magpul MOE SL-K buttstock (Coyote Tan)
 AK Custom Arms ST-EF 74 skeleton stock extension
 AR-15 Daniel Defense GRIP-N-RIP charging handle
@@ -3080,7 +3079,6 @@ MCX SPEAR 6.8x51 330mm barrel
 VSK-94 9x39 barrel
 RPD 7.62x39 520mm barrel
 RPD 7.62x39 sawed-off 350mm barrel
-OP-SKS 7.62x39 520mm barrel
 SKS 7.62x39 520mm barrel
 9A-91 handguard
 AK AKdemia Dominator handguard
@@ -3149,7 +3147,7 @@ AR500 Legacy Plate ballistic plate
 TallCom Guardian ballistic plate
 ESBI level IV ballistic plate (Side)
 Korund-VM ballistic plate (Back)
-Korund VM ballistic plates (Front)
+Korund-VM ballistic plates (Front)
 ESAPI level IV ballistic plate
 Granit ballistic plate (Side)
 SSAPI level III+ ballistic plate (Side)
@@ -3159,9 +3157,312 @@ Granit 4RS ballistic plates (Back)
 Granit 4 ballistic plates (Back)
 SAPI level III+ ballistic plate
 Granit 4RS ballistic plate (Front)
-Korund VM ballistic plate (Side)
+Korund-VM ballistic plate (Side)
 6B12 ballistic plates (Front)
-Korund VM-K ballistic plates (Front)
+Korund-VM-K ballistic plates (Front)
 Granit Br5 ballistic plate
 Monoclete level III PE ballistic plate
 RPD bipod
+23x75mm Shrapnel-10 buckshot ammo pack (5 pcs)
+23x75mm Barrikada slug ammo pack (5 pcs)
+23x75mm Zvezda flashbang round ammo pack (5 pcs)
+23x75mm Shrapnel-25 buckshot ammo pack (5 pcs)
+20/70 7.3mm buckshot ammo pack (25 pcs)
+20/70 Poleva-3 slug ammo pack (25 pcs)
+20/70 Poleva-6u slug ammo pack (25 pcs)
+20/70 Star slug ammo pack (25 pcs)
+20/70 Devastator slug ammo pack (25 pcs)
+20/70 7.5mm buckshot ammo pack (25 pcs)
+20/70 6.2mm buckshot ammo pack (25 pcs)
+20/70 5.6mm buckshot ammo pack (25 pcs)
+12.7x55mm PS12 ammo pack (10 pcs)
+12.7x55mm PS12A ammo pack (10 pcs)
+.338 Lapua Magnum FMJ ammo pack (20 pcs)
+.338 Lapua Magnum UCW ammo pack (20 pcs)
+.338 Lapua Magnum TAC-X ammo pack (20 pcs)
+.45 ACP RIP ammo pack (50 pcs)
+.45 ACP Hydra-Shok ammo pack (50 pcs)
+.45 ACP Lasermatch FMJ ammo pack (50 pcs)
+.45 ACP Match FMJ ammo pack (50 pcs)
+.357 Magnum FMJ ammo pack (25 pcs)
+.357 Magnum HP ammo pack (25 pcs)
+.357 Magnum SP ammo pack (25 pcs)
+.357 Magnum JHP ammo pack (25 pcs)
+5.56x45mm FMJ ammo pack (100 pcs)
+5.56x45mm M856A1 ammo pack (100 pcs)
+5.56x45mm MK 255 Mod 0 (RRLP) ammo pack (100 pcs)
+5.56x45mm M855 ammo pack (100 pcs)
+5.56x45mm M855A1 ammo pack (100 pcs)
+5.56x45mm MK 318 Mod 0 (SOST) ammo pack (100 pcs)
+5.56x45mm M856 ammo pack (100 pcs)
+5.56x45mm M995 ammo pack (100 pcs)
+5.56x45mm SSA AP ammo pack (100 pcs)
+5.56x45mm HP ammo pack (100 pcs)
+5.56x45mm M856 ammo pack (50 pcs)
+5.56x45mm M855A1 ammo pack (50 pcs)
+5.56x45mm FMJ ammo pack (50 pcs)
+5.56x45mm MK 318 Mod 0 (SOST) ammo pack (50 pcs)
+5.56x45mm M856A1 ammo pack (50 pcs)
+5.56x45mm M995 ammo pack (50 pcs)
+5.56x45mm HP ammo pack (50 pcs)
+5.56x45mm MK 255 Mod 0 (RRLP) ammo pack (50 pcs)
+5.45x39mm 7N40 ammo pack (120 pcs)
+5.45x39mm PPBS gs Igolnik ammo pack (120 pcs)
+7.62x51mm M61 ammo pack (20 pcs)
+7.62x51mm M80 ammo pack (20 pcs)
+7.62x51mm M62 Tracer ammo pack (20 pcs)
+7.62x51mm Ultra Nosler ammo pack (20 pcs)
+7.62x51mm BCP FMJ ammo pack (20 pcs)
+7.62x51mm TCW SP ammo pack (20 pcs)
+7.62x54mm R BT gzh ammo pack (20 pcs)
+7.62x54mm R LPS gzh ammo pack (20 pcs)
+7.62x54mm R T-46M gzh ammo pack (20 pcs)
+7.62x54mm R PS gzh ammo pack (20 pcs)
+12/70 5.25mm buckshot ammo pack (25 pcs)
+12/70 makeshift .50 BMG slug ammo pack (25 pcs)
+12/70 7mm buckshot ammo pack (25 pcs)
+12/70 8.5mm Magnum buckshot ammo pack (25 pcs)
+12/70 Piranha ammo pack (25 pcs)
+12/70 Poleva-6u slug ammo pack (25 pcs)
+12/70 lead slug ammo pack (25 pcs)
+12/70 FTX Custom Lite slug ammo pack (25 pcs)
+12/70 Copper Sabot Premier HP slug ammo pack (25 pcs)
+12/70 Dual Sabot slug ammo pack (25 pcs)
+12/70 SuperFormance HP slug ammo pack (25 pcs)
+12/70 flechette ammo pack (25 pcs)
+12/70 Poleva-3 slug ammo pack (25 pcs)
+12/70 6.5mm Express buckshot ammo pack (25 pcs)
+12/70 Grizzly 40 slug ammo pack (25 pcs)
+4.6x30mm Subsonic SX ammo pack (40 pcs)
+4.6x30mm Action SX ammo pack (40 pcs)
+4.6x30mm FMJ SX ammo pack (40 pcs)
+.366 TKM FMJ ammo pack (20 pcs)
+.366 TKM AP-M ammo pack (20 pcs)
+.366 TKM Geksa ammo pack (20 pcs)
+.366 TKM EKO ammo pack (20 pcs)
+5.7x28mm R37.F ammo pack (50 pcs)
+5.7x28mm SS197SR ammo pack (50 pcs)
+5.7x28mm SB193 ammo pack (50 pcs)
+5.7x28mm SS198LF ammo pack (50 pcs)
+5.7x28mm R37.X ammo pack (50 pcs)
+5.7x28mm L191 ammo pack (50 pcs)
+9x18mm PM P gzh ammo pack (50 pcs)
+9x18mm PM PBM gzh ammo pack (50 pcs)
+9x18mm PM PS gs PPO ammo pack (50 pcs)
+9x18mm PM PSV ammo pack (50 pcs)
+9x18mm PM PPe gzh ammo pack (50 pcs)
+9x18mm PM PRS gs ammo pack (50 pcs)
+9x18mm PMM PstM gzh ammo pack (50 pcs)
+9x18mm PM Pst gzh ammo pack (50 pcs)
+9x18mm PM SP8 gzh ammo pack (50 pcs)
+9x18mm PM BZhT gzh ammo pack (50 pcs)
+9x18mm PM PPT gzh ammo pack (50 pcs)
+9x18mm PM PSO gzh ammo pack (50 pcs)
+9x18mm PM SP7 gzh ammo pack (50 pcs)
+9x18mm PM RG028 gzh ammo pack (50 pcs)
+.300 Whisper ammo pack (50 pcs)
+.300 Blackout CBJ ammo pack (50 pcs)
+.300 Blackout BCP FMJ ammo pack (50 pcs)
+.300 Blackout M62 Tracer ammo pack (50 pcs)
+.300 Blackout V-Max ammo pack (50 pcs)
+7.62x25mm TT PT gzh ammo pack (25 pcs)
+7.62x25mm ТТ LRN ammo pack (25 pcs)
+7.62x25mm TT AKBS ammo pack (25 pcs)
+7.62x25mm ТТ FMJ43 ammo pack (25 pcs)
+7.62x25mm TT P gl ammo pack (25 pcs)
+7.62x25mm ТТ LRNPC ammo pack (25 pcs)
+7.62x25mm TT Pst gzh ammo pack (25 pcs)
+9x19mm Pst gzh ammo pack (50 pcs)
+9x19mm Green Tracer ammo pack (50 pcs)
+9x19mm PSO gzh ammo pack (50 pcs)
+9x19mm QuakeMaker ammo pack (50 pcs)
+9x19mm Luger CCI ammo pack (50 pcs)
+9x19mm AP 6.3 ammo pack (50 pcs)
+9x39mm SPP gs ammo pack (20 pcs)
+9x39mm PAB-9 gs ammo pack (20 pcs)
+9x39mm SP-5 gs ammo pack (20 pcs)
+9x39mm SP-6 gs ammo pack (20 pcs)
+9x39mm FMJ ammo pack (20 pcs)
+9x21mm 7N42 ammo pack (30 pcs)
+9x21mm 7U4 ammo pack (30 pcs)
+9x21mm PS gzh ammo pack (30 pcs)
+9x21mm P gzh ammo pack (30 pcs)
+9x21mm PE gzh ammo pack (30 pcs)
+Sacred Amulet
+20x1mm toy gun
+Toy gun 20x1mm 20-round magazine
+20x1mm disk
+Armband of The Unheard
+United Cutlery M48 Tactical Kukri
+Mark of The Unheard
+USEC cottage room key
+2A2-(b-TG) stimulant injector
+Lega Medal
+Leon's hideout key
+Shatun's hideout key
+Grumpy's hideout key
+Dorm overseer key
+Voron's hideout key
+APOK Tactical Wasteland Gladius
+Reshala figurine
+Killa figurine
+Den figurine
+Tagilla figurine
+Secure container Theta
+Armband (ARENA)
+Locked weapon crate (Rare)
+Locked supply crate (Epic)
+Unlocked weapon crate (Rare)
+Unlocked supply crate (Epic)
+SR-3M 9x39 compact assault rifle
+U.S. Ordnance M60E6 7.62x51 light machine gun
+U.S. Ordnance M60E6 7.62x51 light machine gun (FDE)
+U.S. Ordnance M60E4 7.62x51 light machine gun
+IWI UZI PRO SMG 9x19 submachine gun
+IWI UZI 9x19 submachine gun
+IWI UZI PRO Pistol 9x19 submachine gun
+Magnum Research Desert Eagle L6 .50 AE pistol
+Magnum Research Desert Eagle L5 .357 pistol
+Magnum Research Desert Eagle Mk XIX .50 AE pistol
+Magnum Research Desert Eagle L6 .50 AE pistol (WTS)
+Magnum Research Desert Eagle L5 .50 AE pistol
+.50 AE Copper Solid
+.50 AE FMJ
+.50 AE Hawk JSP
+.50 AE JHP
+UZI 9x19 sound suppressor
+SR-3M 9x39 sound suppressor
+M700 Badger Ordnance Scope Rail
+UZI handguard rail
+UZI PRO SMG rail adapter
+RS Regulate AK-303M Full Length Lower dovetail mount
+UZI StormWerkz lower handguard rail
+RS Regulate AKR top mount
+UZI StormWerkz Scope Mount
+Magpul M-LOK 0.93 inch rail
+UZI Type 6 buttstock
+UZI Type 3 buttstock
+UZI Type 7 buttstock
+UZI Type 5 buttstock
+UZI PRO SBR buttstock
+UZI PRO backplate
+AK skeletonized stock (Customized)
+UZI PRO A3 Tactical Rear Stock Adapter
+UZI PRO Stabilizing Brace
+UZI PRO A3 Tactical Modular Folding Brace
+UZI PRO CSM stock adapter
+UZI StormWerkz stock adapter
+M60E6 buttstock (FDE)
+M60E6 buttstock
+M60E4 buttstock
+UZI 9x19 50-round magazine
+UZI 9x19 20-round magazine
+UZI 9x19 25-round magazine
+UZI 9x19 32-round magazine
+UZI 9x19 40-round magazine
+UZI PRO 9x19 20-round magazine
+UZI PRO 9x19 32-round magazine
+UZI PRO 9x19 25-round magazine
+Desert Eagle .357 9-round magazine
+Desert Eagle .50 AE 7-round magazine
+M60 7.62x51 Capco 100-round Assault Box
+VSS/VAL 9x39 30-round magazine
+M60E6 7.62x51 458mm barrel
+M60E4 7.62x51 458mm barrel
+M60E4 7.62x51 475mm heavy barrel
+M60E3 7.62x51 584mm barrel
+UZI PRO 9x19 114mm barrel
+UZI PRO 9x19 Pike Arms 114mm threaded barrel
+UZI PRO 9x19 170mm barrel
+UZI PRO 9x19 210mm barrel
+UZI PRO 9x19 240mm barrel
+UZI 238mm threaded 3-lug barrel
+UZI 9x19 409mm barrel
+UZI 9x19 259mm barrel
+Desert Eagle L5 .50 AE 127mm barrel
+Desert Eagle L6 .50 AE 152mm barrel
+Desert Eagle Mk XIX .50 AE 152mm barrel
+Desert Eagle L5 .357 127mm barrel
+Desert Eagle L6 .50 AE 152mm barrel (WTS)
+UZI K-Grip handguard
+UZI polymer handguard
+UZI handguard with foregrip
+UZI PRO A3 Tactical M-LOK handguard
+SR-3M polymer handguard (Black)
+SR-3M railed polymer handguard (Black)
+SR-3M polymer handguard (Plum)
+VSS/VAL polymer handguard (Plum)
+VSS/VAL polymer handguard (Black)
+M60E6 handguard
+M60E4 Mod 1 handguard
+M60E4 Mod 1 handguard (FDE)
+M60E4 pistol grip
+M60E4 trigger group
+M60E6 pistol grip
+M60E6 pistol grip (FDE)
+M60E6 trigger group
+M60E6 trigger group (FDE)
+PM PM-Laser grip with laser sight
+Desert Eagle Hogue Rubber Grip
+Desert Eagle Hogue Rubber Grip with finger grooves
+UZI pistol grip cover
+AS VAL pistol grip (Black)
+UZI PRO dust cover
+Desert Eagle L5 .50 AE pistol slide
+Desert Eagle L6 pistol slide
+Desert Eagle L5 .357 pistol slide
+Desert Eagle L6 pistol slide (WTS)
+Desert Eagle Mk XIX pistol slide
+BCM GUNFIGHTER MOD 3 M-LOK foregrip (Black)
+BCM GUNFIGHTER MOD 3 M-LOK foregrip (FDE)
+TangoDown BGV-QDITI foregrip (Black)
+TangoDown BGV-QDITI foregrip (FDE)
+TangoDown Stubby BGV-QDK foregrip (Black)
+TangoDown Stubby BGV-QDK foregrip (FDE)
+SR-3M polymer foregrip (Plum)
+SR-3M polymer foregrip (Black)
+M60 bipod
+BT10 V8 Atlas Bipod
+M60E6 7.62x51 flash hider
+M60E3 7.62x51 flash hider
+AR-10 Delta-Tek DTK-AR10 7.62x51 muzzle brake
+AR-15 Delta-Tek DTK-M16 5.56x45 muzzle brake
+AR-15 DoubleStar Carlson Tac Comp 5.56x45 compensator
+UZI vented barrel shroud
+UZI PRO 9x19 barrel retaining nut
+UZI PRO 9x19 Masada thread protector
+UZI 9x19 3-lug barrel thread protector
+UZI 9x19 3-lug barrel retaining nut
+UZI 9x19 barrel retaining nut
+KOMZ Rusak reflex sight
+M60E4 front sight
+M60E6 front sight rail
+M60 rear sight
+Desert Eagle rear sight
+Desert Eagle front sight
+DevTac Ronin ballistic helmet
+Ballistic Armor Co. Bastion helmet (MultiCam)
+Ballistic Armor Co. Bastion helmet (OD Green)
+Ballistic Armor Co. Bastion helmet (Armor Black)
+Safariland Liberator HP 2.0 Hearing Protection Headset (FDE)
+Peltor ComTac VI headset (Coyote Brown)
+Peltor ComTac V headset (OD Green)
+TW EXFIL Peltor ComTac V headset (OD Green)
+TW EXFIL Peltor ComTac VI headset (Coyote Brown)
+Stich Profi Plate Carrier V2 (Black)
+Stich Profi Stich Defense mod.2 plate carrier (MultiCam)
+Tasmanian Tiger Plate Carrier MKIII (Coyote Brown)
+Camelbak Tri-Zip assault backpack (MultiCam)
+Partisan's bag
+Vertx Ready Pack backpack (Red)
+TerraGroup storage room keycard
+Tamatthi kunai knife replica
+Viibiin sneaker
+Inseq gas pipe wrench
+Tripwire installation kit
+Locked supply crate (Rare)
+Unlocked supply crate (Rare)
+Locked equipment crate (Rare)
+Unlocked equipment crate (Rare)
+Locked valuables crate (Rare)
+Unlocked valuables crate (Rare)
